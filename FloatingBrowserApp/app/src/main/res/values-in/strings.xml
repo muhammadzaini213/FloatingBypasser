@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dashboard_button_text">Dashboard</string>
+
+    <string name="coming_soon">segera datang!</string>
+
+    <string name="permission_need">Izin Dibutuhkan</string>
+    <string name="permission_request">Aplikasi ini membutuhkan izin tampilkan diatas aplikasi lain untuk berfungsi.</string>
+    <string name="permission_granted">Izin sudah diberikan! Anda dapat mengaktifkan browser mengambang sekarang!</string>
+
+    <string name="update_notice">Pemberitahuan Update</string>
+    <string name="update_desc">Apakah anda ingin pergi ke laman update sekarang?</string>
+
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+
+    <string name="permission_active">Izin: aktif</string>
+    <string name="permission_false">Izin: mati</string>
+    <string name="open_settings">Buka Pengaturan</string>
+
+    <!--    dashboard list-->
+    <string name="home_url_title">URL Home</string>
+    <string name="home_url_desc">Modifikasi URL awal dari floatingbrowser.</string>
+    <string name="home_url_default" translatable="false">https://google.com</string>
+
+    <string name="adjust_window_title">Sesuaikan Window</string>
+    <string name="adjust_window_desc">Sesuaikan lokasi jendela mengambang pada layar sesuai keinginan anda.</string>
+
+    <string name="terminal_title">Terminal</string>
+    <string name="terminal_desc">Gunakan beberapa alat dengan fungsi yang beragam secara online. Fitur ini masih experimental.</string>
+
+    <string name="permission_status_title">Status Izin</string>
+    <string name="permission_status_desc">Status izin dari aplikasi ini sekarang.</string>
+
+    <string name="float_unfocused_title">Matikan Fokus</string>
+    <string name="float_unfocused_desc">Memastikan aplikasi tidak akan dideteksi oleh metode onWindowFocusChanged. Mengaktifkan ini akan mengakibatkan pengguna hanya bisa mengetik menggunakan floating keyboard.</string>
+
+    <string name="hidden_mode_title">Mode Tersembunyi</string>
+    <string name="hidden_mode_desc">Mode yang membantu pengguna untuk menyembunyikan floating browser sepenuhnya saat disembunyikam.</string>
+
+    <string name="anti_obscure_title">Anti Obscure</string>
+    <string name="anti_obscure_desc">Mempersulit deteksi anti obscure motion event mendeteksi aplikasi ini. Gunakan tombol volume untuk mengaktifkan</string>
+
+
+
+    <string name="activate">Aktifkan</string>
+    <string name="deactivate_notification">Tekan lama tombol matikan untuk mematikan floating browser</string>
+
+</resources>
