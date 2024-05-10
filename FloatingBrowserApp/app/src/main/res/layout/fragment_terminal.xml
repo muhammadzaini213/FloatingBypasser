@@ -24,7 +24,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exit_terminal" />
 
-
 <!--    <TextView-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
@@ -34,6 +33,13 @@
 <!--        android:textSize="15dp"-->
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent" />-->
+    <WebView
+        android:id="@+id/terminal_webview"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/shell_recyclerview" />
+
     <EditText
         android:id="@+id/shell_input"
         android:layout_width="match_parent"

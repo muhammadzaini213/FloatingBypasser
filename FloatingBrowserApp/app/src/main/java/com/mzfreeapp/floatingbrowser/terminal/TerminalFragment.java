@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,6 +37,7 @@ public class TerminalFragment extends Fragment {
         exit_terminal.setOnClickListener(v -> ClickListener.tlistener.onBackButton());
         RecyclerView shell_recyclerview = view.findViewById(R.id.shell_recyclerview);
         EditText shell_input = view.findViewById(R.id.shell_input);
+        WebView terminal_webview = view.findViewById(R.id.terminal_webview);
 
         TextView send = view.findViewById(R.id.send);
         send.setOnClickListener(v -> {
@@ -60,6 +62,7 @@ public class TerminalFragment extends Fragment {
         TerminalAdapter terminalAdapter = new TerminalAdapter(shellList);
 
         terminalShell = new TerminalShell(shellList, getResources(), terminalAdapter, shell_recyclerview);
+        terminalShell.setWebView(terminal_webview);
         terminalShell.startShell();
 
         return view;

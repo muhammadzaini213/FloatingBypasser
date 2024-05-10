@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.mzfreeapp.floatingbrowser" />
+                  <option name="mobileSdkAppId" value="1:68807167799:android:396252a3d10c828073d4b2" />
+                  <option name="projectId" value="scripts-6d2f7" />
+                  <option name="projectNumber" value="68807167799" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
