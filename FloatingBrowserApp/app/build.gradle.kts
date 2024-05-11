@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.mzfreeapp.floatingbrowser"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.mzfreeapp.floatingbrowser"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 4
         versionName = "3.6.11"
 
@@ -35,7 +35,7 @@ android {
 dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.8.0")
+    implementation("com.google.android.material:material:1.12.0")
     implementation("com.google.firebase:firebase-database:21.0.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
