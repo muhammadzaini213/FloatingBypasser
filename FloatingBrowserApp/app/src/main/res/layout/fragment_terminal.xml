@@ -67,6 +67,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="3dp"
         android:text="Send"
+        android:visibility="gone"
         android:textColor="@color/shell_text"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"

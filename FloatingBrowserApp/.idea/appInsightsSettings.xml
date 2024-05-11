@@ -8,7 +8,7 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.mzfreeapp.floatingbrowser" />
+                  <option name="appId" value="com.ibnucoding.iceloating" />
                   <option name="mobileSdkAppId" value="1:68807167799:android:396252a3d10c828073d4b2" />
                   <option name="projectId" value="scripts-6d2f7" />
                   <option name="projectNumber" value="68807167799" />

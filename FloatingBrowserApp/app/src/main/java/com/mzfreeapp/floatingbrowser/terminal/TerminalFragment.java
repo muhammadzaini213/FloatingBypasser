@@ -59,7 +59,7 @@ public class TerminalFragment extends Fragment {
         });
 
         List<TerminalData> shellList = new ArrayList<>();
-        TerminalAdapter terminalAdapter = new TerminalAdapter(shellList);
+        TerminalAdapter terminalAdapter = new TerminalAdapter(shellList, getContext());
 
         terminalShell = new TerminalShell(shellList, getResources(), terminalAdapter, shell_recyclerview);
         terminalShell.setWebView(terminal_webview);

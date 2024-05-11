@@ -9,9 +9,9 @@
         android:layout_height="wrap_content"
         android:background="@color/shell_background"
         android:paddingLeft="3dp"
-        android:text="__"
+        android:text=""
         android:textColor="@color/shell_text"
-        android:textSize="15dp"
+        android:textSize="12dp"
         android:typeface="monospace" />
 
 

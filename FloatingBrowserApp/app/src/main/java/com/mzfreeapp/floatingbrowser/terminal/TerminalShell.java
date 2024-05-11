@@ -36,6 +36,8 @@ public class TerminalShell {
     FirebaseDatabase database;
     RecyclerView recyclerView;
     String onlineCommand;
+    String onlineScript;
+    WebView webView;
 
     public TerminalShell(List<TerminalData> shellList, Resources resources, TerminalAdapter terminalAdapter, RecyclerView recyclerView) {
         this.shellList = shellList;
@@ -53,7 +55,8 @@ public class TerminalShell {
     public void startShell() {
         addShell("loading data...", Color.GREEN, NORMAL_SHELL, 0);
         addShell("system preparation complete: 0 error", Color.GREEN, NORMAL_SHELL, 2000);
-        addShell("initializing shell...", Color.GREEN, NORMAL_SHELL, 4500);
+        addShell("initializing shell", Color.GREEN, NORMAL_SHELL, 4500);
+        addShell("shell ready", Color.GREEN, NORMAL_SHELL, 7500);
     }
 
     public void addInputShell(String input) {
@@ -62,8 +65,6 @@ public class TerminalShell {
             scriptAction(input);
         }
     }
-
-    String onlineScript;
 
     private void scriptAction(String input) {
         if (input.startsWith("web ")) {
@@ -120,20 +121,20 @@ public class TerminalShell {
             String commandType = input.substring(onlineScript.length());
             onlineCommand = commandType;
             String[] commandArray = commandType.split(" ");
-//            addShell(commandArray[2], Color.GREEN, NORMAL_SHELL, 100);
-//            addShell(commandArray[3], Color.GREEN, NORMAL_SHELL, 100);
-//            addShell(commandArray[4], Color.GREEN, NORMAL_SHELL, 100);
-//            addShell(commandArray[5], Color.GREEN, NORMAL_SHELL, 100);
 
-            if (commandArray.length >= 5) {
-                webView.evaluateJavascript(commandArray[1] + "('" + commandArray[2] + "','" + commandArray[3] + "','" + commandArray[4] + "','" + commandArray[5]+"')", null);
-            } else if (commandArray.length >= 4) {
-                webView.evaluateJavascript(commandArray[1] + "('" + commandArray[2] + "','" + commandArray[3] + "','" + commandArray[4] + "')", null);
-            } else if (commandArray.length >= 3) {
+            if (commandArray.length == 2) {
+                webView.evaluateJavascript(commandArray[1] + "()", null);
+            } else if (commandArray.length == 3) {
+                webView.evaluateJavascript(commandArray[1] + "('" + commandArray[2] + "')", null);
+
+            } else if (commandArray.length == 4) {
                 webView.evaluateJavascript(commandArray[1] + "('" + commandArray[2] + "','" + commandArray[3] + "')", null);
-            } else {
-                webView.evaluateJavascript(commandType + "()", null);
+            } else if (commandArray.length == 5) {
+                webView.evaluateJavascript(commandArray[1] + "('" + commandArray[2] + "','" + commandArray[3] + "','" + commandArray[4] + "')", null);
+            } else if (commandArray.length == 6) {
+                webView.evaluateJavascript(commandArray[1] + "('" + commandArray[2] + "','" + commandArray[3] + "','" + commandArray[4] + "','" + commandArray[5] + "')", null);
             }
+
 
         } else if (input.equals("onlinescript")) {
             addShell("current online script:" + onlineScript, Color.WHITE, NORMAL_SHELL, 300);
@@ -142,6 +143,13 @@ public class TerminalShell {
         }
     }
 
+    String console;
+
+    private void copyConsole(){
+        if (console != null) {
+            addShell(console, Color.WHITE, NORMAL_SHELL, 300);
+        }
+    }
     private void addShell(String input, int color, int shellType, int delay) {
         handler.postDelayed(() -> {
             shellList.add(new TerminalData(input, color, shellType));
@@ -149,8 +157,6 @@ public class TerminalShell {
             recyclerView.scrollToPosition(terminalAdapter.getItemCount() - 1);
         }, delay);
     }
-
-    WebView webView;
 
     public void setWebView(WebView webView) {
         this.webView = webView;

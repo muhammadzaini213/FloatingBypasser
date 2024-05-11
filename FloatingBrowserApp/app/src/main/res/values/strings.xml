@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Floating Browser</string>
+    <string name="app_name" translatable="false">Iceloating</string>
 
     <string name="google_url" translatable="false">https://google.com</string>
     <string name="uri_parse" translatable="false">package:</string>
