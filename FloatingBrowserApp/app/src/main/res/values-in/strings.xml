@@ -11,6 +11,9 @@
     <string name="update_notice">Pemberitahuan Update</string>
     <string name="update_desc">Apakah anda ingin pergi ke laman update sekarang?</string>
 
+    <!--    free version-->
+    <string name="only_in_premium">hanya tersedia di versi premium</string>
+
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
 
@@ -39,9 +42,10 @@
     <string name="hidden_mode_desc">Mode yang membantu pengguna untuk menyembunyikan floating browser sepenuhnya saat disembunyikam.</string>
 
     <string name="anti_obscure_title">Anti Obscure</string>
-    <string name="anti_obscure_desc">Mempersulit deteksi anti obscure motion event mendeteksi aplikasi ini. Gunakan tombol volume untuk mengaktifkan</string>
+    <string name="anti_obscure_desc">Mempersulit deteksi anti obscure motion event mendeteksi aplikasi ini. Gunakan tombol volume untuk mengaktifkan.</string>
 
-
+    <string name="use_vibration_title">Gunakan Getaran</string>
+    <string name="use_vibration_desc">(Baru) Goyangkan perangkat untuk memunculkan Iceloating Browser, fitur ini sebagai alternatif anti obscure.</string>
 
     <string name="activate">Aktifkan</string>
     <string name="deactivate_notification">Tekan lama tombol matikan untuk mematikan floating browser</string>

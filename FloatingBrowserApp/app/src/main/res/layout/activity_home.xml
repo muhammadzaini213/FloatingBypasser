@@ -7,6 +7,25 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
         android:layout_height="match_parent"
         android:id="@+id/fragment_container"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-9202355295382068/4151224654"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-9202355295382068/5829815015"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:id="@+id/keyboard_layout"
         android:layout_width="match_parent"
@@ -16,6 +17,8 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <include layout="@layout/window_floating_keyboard_symbols" android:id="@+id/symbols" android:visibility="gone"/>
 
         <LinearLayout
             android:id="@+id/row_number"
@@ -938,7 +941,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="5">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/clear_btn"
@@ -952,6 +955,31 @@
                 android:textSize="15dp" />
 
 
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/open_symbol_btn"
+                style="@style/keyboard_style"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingVertical="7dp"
+                android:text="Symbol"
+                android:textAlignment="center"
+                android:textSize="15dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/open_alphabet_btn"
+                style="@style/keyboard_style"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingVertical="7dp"
+                android:visibility="gone"
+                android:text="Aa"
+                android:textAlignment="center"
+                android:textSize="15dp" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/space_btn"
                 style="@style/keyboard_style"
@@ -963,6 +991,16 @@
                 android:textAlignment="center"
                 android:textSize="15dp" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/paste_btn"
+                style="@style/keyboard_style"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingVertical="7dp"
+                android:text="Paste"
+                android:textAlignment="center"
+                android:textSize="15dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/enter_btn"
@@ -977,6 +1015,7 @@
 
 
         </LinearLayout>
+
     </LinearLayout>
 
 

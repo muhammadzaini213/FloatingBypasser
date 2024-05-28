@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/row_symbol_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_1"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="~"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_2"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="`"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_3"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="|"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_4"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="•"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_5"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="√"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_6"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="π"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_7"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="÷"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_8"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="∆"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_9"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="£"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_10"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="¢"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row_symbol_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_11"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="€"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_12"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="¥"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_13"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="^"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_14"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="°"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_15"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="="
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_16"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="{"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_17"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="}"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_18"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="\"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_19"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="%"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_20"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="©"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row_symbol_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_21"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="®"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_22"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="™"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_23"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="✓"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_24"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="["
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_25"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="]"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_26"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="&lt;"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_27"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="&gt;"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_28"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="#"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_29"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="$"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_30"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="_"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row_symbol_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="8">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_31"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="@string/amp"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_32"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="*"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_33"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="@string/quot"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_34"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="'"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_35"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text=":"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_36"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text=";"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_37"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="!"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sym_38"
+            style="@style/keyboard_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:text="#"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

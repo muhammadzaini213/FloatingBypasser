@@ -1,10 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ibnucoding.iceloating">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.READ_CLIPBOARD" />
 
     <queries>
         <intent>
@@ -13,6 +20,9 @@
             <data android:scheme="https" />
         </intent>
     </queries>
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
@@ -21,6 +31,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AIClicker"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9202355295382068~2607921155"/>
 
         <activity
             android:name=".HomeActivity"
@@ -33,9 +47,7 @@
 
         <service android:name=".window.floatingwindow.FloatingWindow" />
         <service android:name=".window.floatingkeyboard.FloatingKeyboard" />
-        <service android:name=".window.floatingbackground.FloatingBackground"/>
-
+        <service android:name=".window.floatingbackground.FloatingBackground" android:foregroundServiceType="dataSync|mediaPlayback|specialUse"/>
     </application>
 
 </manifest>
-

@@ -7,6 +7,9 @@
     <string name="dashboard_button_text">Dashboard</string>
     <string name="dashboard_title" translatable="false">Plugins</string>
 
+    <!--    free version-->
+    <string name="only_in_premium">only in premium version</string>
+
     <!--    unused material-->
     <string name="title_unused" translatable="false"> </string>
     <string name="desc_unused" translatable="false"> </string>
@@ -51,7 +54,8 @@
     <string name="anti_obscure_title">Anti Obscure</string>
     <string name="anti_obscure_desc">Make it more harder for motion event anti obscure method to detect this app. Use volume button to activate</string>
 
-
+    <string name="use_vibration_title">Use Vibration</string>
+    <string name="use_vibration_desc">(New) Shake phone to show Iceloating browser, used as an alternative for Anti Obscure</string>
     <string name="at" translatable="false">"&#64;"</string>
 
     <string name="activate">Activate</string>
@@ -59,4 +63,7 @@
     <string name="deactivate_notification">Long press on deactivate button to deactivate floating browser</string>
 
     <string name="launcherDeviceName" translatable="false">device@android: ~$</string>
+    <string name="amp" translatable="false"><![CDATA[&]]></string>
+    <string name="quot" translatable="false">\"</string>
+
 </resources>
