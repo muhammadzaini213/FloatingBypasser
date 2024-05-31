@@ -10,9 +10,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.ibnucoding.iceloating.R;
+import com.ibnucoding.iceloating.dashboard.DashboardUtils;
 import com.ibnucoding.iceloating.window.floatingbackground.StopForegroundListener;
 import com.ibnucoding.iceloating.window.floatingkeyboard.FloatingKeyboardListener;
 import com.ibnucoding.iceloating.window.floatingwindow.FloatingWindowListener;
+import com.ibnucoding.iceloating.window.floatingwindow.helper.FloatingShowOrHideHelperSafety;
 
 import java.util.Objects;
 
@@ -25,7 +27,7 @@ public class BottomNavbarLayer2Item {
     private boolean isDekstopMode = false;
     private boolean isKeyboardActive = false;
 
-
+    private boolean isSafetyActive;
 
     /*
     Layer2 items contains listener for communicating with other services
@@ -45,9 +47,16 @@ public class BottomNavbarLayer2Item {
             mlistener.onStopBypassButtonClick();
         });
 
-        show_floating.setOnClickListener(v -> {
-            mlistener.onShowFloatingButtonClick();
 
+        show_floating.setOnClickListener(v -> {
+            if (DashboardUtils.getDOUBLE_SAFETY()) {
+                isSafetyActive = FloatingShowOrHideHelperSafety.getIsSafetyTouched();
+                if(isSafetyActive){
+                    mlistener.onShowFloatingButtonClick();
+                }
+            } else {
+                mlistener.onShowFloatingButtonClick();
+            }
         });
 
         hide_button.setOnClickListener(v -> {
@@ -143,9 +152,10 @@ public class BottomNavbarLayer2Item {
 
     }
 
-    public static void setStopForegroundListener (StopForegroundListener listener){
+    public static void setStopForegroundListener(StopForegroundListener listener) {
         slistener = listener;
     }
+
     public static void setFloatingWindowListener(FloatingWindowListener listener) {
         mlistener = listener;
     }
@@ -157,6 +167,7 @@ public class BottomNavbarLayer2Item {
     public static void deactivateKeyboard() {
         klistener.onDeactivateButtonLongPress();
     }
+
     private boolean longPressActivated;
     private final Runnable longPressAction = new Runnable() {
         @Override

@@ -1,6 +1,7 @@
 package com.ibnucoding.iceloating.window.floatingwindow.helper;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -16,7 +17,10 @@ import android.widget.RelativeLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.ibnucoding.iceloating.R;
+import com.ibnucoding.iceloating.dashboard.DashboardUtils;
 
+
+//TODO: Fix Double Safety and Bypass Bug
 public class FloatingBypassModeHelper {
     ViewGroup floatView;
     WindowManager windowManager;
@@ -26,6 +30,7 @@ public class FloatingBypassModeHelper {
     boolean isBypassMode = false;
     int LAYOUT_TYPE = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
     SharedPreferences sp;
+    boolean HIDDEN_MODE;
 
     public FloatingBypassModeHelper(ViewGroup floatView, WindowManager windowManager, DisplayMetrics metrics, SharedPreferences sp) {
         this.floatView = floatView;
@@ -34,12 +39,20 @@ public class FloatingBypassModeHelper {
         this.sp = sp;
 
         density = (int) metrics.density;
+
     }
 
     public void bypassFloating() {
         intwidth = sp.getInt("SHOWBUTTON_WIDTH", 60 * density);
         intheight = sp.getInt("SHOWBUTTON_HEIGHT", 60 * density);
 
+        HIDDEN_MODE = DashboardUtils.getHiddenMode();
+        ImageView stop_bypass = floatView.findViewById(R.id.stop_bypass);
+        if(HIDDEN_MODE){
+            stop_bypass.setBackgroundColor(Color.TRANSPARENT);
+        } else {
+            stop_bypass.setBackgroundResource(R.drawable.button_stop_bypass);
+        }
         floatView.setOnTouchListener(null);
 
         floatWindowLayoutParam = new WindowManager.LayoutParams(
@@ -62,6 +75,8 @@ public class FloatingBypassModeHelper {
         }
 
 
+
+
         hideLayout();
         updateLayout();
     }
@@ -75,6 +90,7 @@ public class FloatingBypassModeHelper {
                 if (isBypassMode) {
                     windowManager.removeView(floatView);
                     windowManager.addView(floatView, floatWindowLayoutParam);
+
                     windowManager.updateViewLayout(floatView, floatWindowLayoutParam);
                     updateLayout();
                 }
@@ -92,12 +108,15 @@ public class FloatingBypassModeHelper {
         ImageView show_floating = floatView.findViewById(R.id.show_floating);
         RelativeLayout button_move = floatView.findViewById(R.id.button_move);
 
+        stop_bypass.setVisibility(View.VISIBLE);
+
         button_move.setVisibility(View.GONE);
         background.setVisibility(View.GONE);
         textFieldContainer.setVisibility(View.GONE);
         webView.setVisibility(View.GONE);
         bottom_navigation_bar.setVisibility(View.GONE);
-        stop_bypass.setVisibility(View.VISIBLE);
+
+
         show_floating.setVisibility(View.GONE);
     }
 

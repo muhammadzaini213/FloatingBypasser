@@ -50,6 +50,7 @@ public class DashboardFragment extends Fragment implements DashboardAdapter.OnIt
                         // an ad is loaded.
                         mInterstitialAd = interstitialAd;
                         Log.i(TAG, "onAdLoaded");
+
                     }
 
                     @Override

@@ -17,6 +17,16 @@ public class DashboardUtils {
     }
 
 
+    static boolean bIsPremium;
+
+    public static void itIsPremium(boolean isPremium) {
+        bIsPremium = isPremium;
+    }
+
+    public static boolean isPremium() {
+        return bIsPremium;
+    }
+
     static boolean bHIDDEN_MODE;
 
     public static boolean getHiddenMode() {
@@ -50,11 +60,23 @@ public class DashboardUtils {
     }
 
     static boolean bUSE_VIBRATION;
-    public static void setUSE_VIBRATION(boolean USE_VIBRATION){
+
+    public static void setUSE_VIBRATION(boolean USE_VIBRATION) {
         bUSE_VIBRATION = USE_VIBRATION;
     }
 
-    public static boolean getUSE_VIBRATION(){
+    public static boolean getUSE_VIBRATION() {
         return bUSE_VIBRATION;
+    }
+
+
+    static boolean bDOUBLE_SAFETY;
+
+    public static void setDOUBLE_SAFETY(boolean DOUBLE_SAFETY) {
+        bDOUBLE_SAFETY = DOUBLE_SAFETY;
+    }
+
+    public static boolean getDOUBLE_SAFETY(){
+        return bDOUBLE_SAFETY;
     }
 }

@@ -88,6 +88,12 @@ public class AddList {
                 resources.getString(R.string.int_unused),
                 false, SWITCH_DATA));
 
+        dataList.add(new DashboardData(
+                resources.getString(R.string.double_safety_title),
+                resources.getString(R.string.double_safety_desc),
+                resources.getString(R.string.int_unused),
+                false, SWITCH_DATA));
+
     }
 
     public void setAdapter(DashboardAdapter dashboardAdapter, RecyclerView recyclerView, java.util.List<DashboardData> dataList) {

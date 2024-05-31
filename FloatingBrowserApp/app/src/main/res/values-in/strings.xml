@@ -4,6 +4,11 @@
 
     <string name="coming_soon">segera datang!</string>
 
+    <string name="connection_lost">Tolong aktifkan koneksi internet anda saat memasuki aplikasi pertama kali.</string>
+
+    <string name="welcome_premium">Selamat datang di Iceloating premium!</string>
+    <string name="welcome_free">Selamat datang di Iceloating free!</string>
+
     <string name="permission_need">Izin Dibutuhkan</string>
     <string name="permission_request">Aplikasi ini membutuhkan izin tampilkan diatas aplikasi lain untuk berfungsi.</string>
     <string name="permission_granted">Izin sudah diberikan! Anda dapat mengaktifkan browser mengambang sekarang!</string>
@@ -44,8 +49,12 @@
     <string name="anti_obscure_title">Anti Obscure</string>
     <string name="anti_obscure_desc">Mempersulit deteksi anti obscure motion event mendeteksi aplikasi ini. Gunakan tombol volume untuk mengaktifkan.</string>
 
+
+    <string name="double_safety_title">Double Safety</string>
+    <string name="double_safety_desc">(Belum selesai) Membutuhkan dua tombol untuk memunculkan Iceloating Browser.</string>
+
     <string name="use_vibration_title">Gunakan Getaran</string>
-    <string name="use_vibration_desc">(Baru) Goyangkan perangkat untuk memunculkan Iceloating Browser, fitur ini sebagai alternatif anti obscure.</string>
+    <string name="use_vibration_desc">Goyangkan perangkat untuk memunculkan Iceloating Browser, fitur ini sebagai alternatif anti obscure.</string>
 
     <string name="activate">Aktifkan</string>
     <string name="deactivate_notification">Tekan lama tombol matikan untuk mematikan floating browser</string>

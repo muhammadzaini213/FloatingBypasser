@@ -19,8 +19,22 @@ public class LoadLayout {
         loadFloatingWindow(view, density, sp);
         loadFloatingKeyboard(view, density, sp);
         loadShowButton(view, density, sp);
+        loadDoubleSafety(view, density, sp);
     }
 
+    protected void loadDoubleSafety(View view, float density, SharedPreferences sp){
+        ConstraintLayout safety_container = view.findViewById(R.id.double_safety_container);
+        ImageView safety_button = view.findViewById(R.id.double_safety_button);
+
+        ViewGroup.LayoutParams layoutParams = safety_button.getLayoutParams();
+        layoutParams.width = sp.getInt("SAFETY_WIDTH", (int) (100 * density));
+        layoutParams.height = sp.getInt("SAFETY_HEIGHT", (int) (100 * density));
+
+        safety_container.setX(sp.getInt("SAFETY_XPOS", (int) 0));
+        safety_container.setY(sp.getInt("SAFETY_YPOS", (int) 0));
+
+        safety_button.setLayoutParams(layoutParams);
+    }
 
 
     protected void loadShowButton(View view, float density, SharedPreferences sp) {

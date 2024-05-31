@@ -11,6 +11,7 @@ import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.ibnucoding.iceloating.R;
 import com.ibnucoding.iceloating.adjustwindow.AdjustWindowListener;
+import com.ibnucoding.iceloating.adjustwindow.Utils;
 import com.ibnucoding.iceloating.dashboard.CheckService;
 import com.ibnucoding.iceloating.terminal.TerminalListener;
 
@@ -41,17 +42,23 @@ public class ClickListener {
         switch (position) {
             case 1:
                 showAd();
-//                alistener.onAdjustWindowOpen();
-                Toast.makeText(context, resources.getString(R.string.adjust_window_title) +" "+
-                                resources.getString(R.string.only_in_premium)
-                        , Toast.LENGTH_SHORT).show();
+                if (Utils.getAofeohofw()) {
+                    alistener.onAdjustWindowOpen();
+                } else {
+                    Toast.makeText(context, resources.getString(R.string.adjust_window_title) + " " +
+                                    resources.getString(R.string.only_in_premium)
+                            , Toast.LENGTH_SHORT).show();
+                }
                 break;
             case 2:
                 showAd();
-                Toast.makeText(context,  resources.getString(R.string.terminal_title) +" "+
-                                resources.getString(R.string.only_in_premium)
-                        , Toast.LENGTH_SHORT).show();
-//                tlistener.openTerminal();
+                if (Utils.getAofeohofw()) {
+                    tlistener.openTerminal();
+                } else {
+                    Toast.makeText(context, resources.getString(R.string.terminal_title) + " " +
+                                    resources.getString(R.string.only_in_premium)
+                            , Toast.LENGTH_SHORT).show();
+                }
                 break;
             case 3:
                 showAd();

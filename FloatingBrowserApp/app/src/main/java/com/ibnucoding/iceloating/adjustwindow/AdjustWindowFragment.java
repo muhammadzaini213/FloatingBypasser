@@ -28,8 +28,8 @@ public class AdjustWindowFragment extends Fragment {
 
     boolean isDropdownOpen = true;
     View floating_window_container, floating_keyboard_container;
-    ConstraintLayout showbutton_container;
-    ImageView showbutton_button;
+    ConstraintLayout showbutton_container, double_safety_container;
+    ImageView showbutton_button, double_safety_button;
     float density;
 
     @Nullable
@@ -38,8 +38,13 @@ public class AdjustWindowFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_adjust_window, container, false);
 
         density = getResources().getDisplayMetrics().density;
+
         showbutton_container = view.findViewById(R.id.showbutton_container);
         showbutton_button = showbutton_container.findViewById(R.id.showbutton_button);
+
+        double_safety_container = view.findViewById(R.id.double_safety_container);
+        double_safety_button = view.findViewById(R.id.double_safety_button);
+
         floating_window_container = view.findViewById(R.id.floating_window_container);
         floating_keyboard_container = view.findViewById(R.id.floating_keyboard_container);
 

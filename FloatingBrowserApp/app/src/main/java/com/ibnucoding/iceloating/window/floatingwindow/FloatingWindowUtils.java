@@ -5,31 +5,41 @@ import android.util.DisplayMetrics;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import com.ibnucoding.iceloating.dashboard.DashboardUtils;
 import com.ibnucoding.iceloating.window.floatingwindow.bottomnavbar.BottomNavbarItems;
 import com.ibnucoding.iceloating.window.floatingwindow.helper.FloatingBypassModeHelper;
 import com.ibnucoding.iceloating.window.floatingwindow.helper.FloatingShowOrHideHelper;
+import com.ibnucoding.iceloating.window.floatingwindow.helper.FloatingShowOrHideHelperSafety;
 import com.ibnucoding.iceloating.window.webview.WebviewHelper;
 
 public class FloatingWindowUtils {
     ViewGroup floatView;
     WindowManager windowManager;
     FloatingShowOrHideHelper showOrHideHelper;
+    FloatingShowOrHideHelperSafety showOrHideHelperSafety;
     FloatingBypassModeHelper bypassModeHelper;
     SharedPreferences sp;
 
-    protected FloatingWindowUtils(SharedPreferences sp){
+    protected FloatingWindowUtils(SharedPreferences sp) {
         this.sp = sp;
     }
 
-    protected void init(ViewGroup floatView, WindowManager windowManager, DisplayMetrics metrics) {
+
+    protected void init(ViewGroup floatView, ViewGroup safetyView, WindowManager windowManager, DisplayMetrics metrics) {
         this.floatView = floatView;
         this.windowManager = windowManager;
 
         BottomNavbarItems navbarItems = new BottomNavbarItems();
         WebviewHelper webviewHelper = new WebviewHelper();
 
-        showOrHideHelper = new FloatingShowOrHideHelper();
-        showOrHideHelper.init(floatView, windowManager, metrics, sp);
+        if (DashboardUtils.getDOUBLE_SAFETY()) {
+            showOrHideHelperSafety = new FloatingShowOrHideHelperSafety();
+            showOrHideHelperSafety.init(floatView, safetyView, windowManager, metrics, sp);
+        } else {
+            showOrHideHelper = new FloatingShowOrHideHelper();
+            showOrHideHelper.init(floatView, windowManager, metrics, sp);
+        }
+
         bypassModeHelper = new FloatingBypassModeHelper(floatView, windowManager, metrics, sp);
 
         navbarItems.setOnClick(floatView);
@@ -39,7 +49,11 @@ public class FloatingWindowUtils {
     }
 
     protected void startFloating() {
-        showOrHideHelper.startFloating();
+        if (DashboardUtils.getDOUBLE_SAFETY()) {
+            showOrHideHelperSafety.startFloating();
+        } else {
+            showOrHideHelper.startFloating();
+        }
     }
 
     protected void bypassFloating() {
@@ -47,11 +61,20 @@ public class FloatingWindowUtils {
     }
 
     protected void hideFloating() {
-        showOrHideHelper.hideFloating();
+        if (DashboardUtils.getDOUBLE_SAFETY()) {
+            showOrHideHelperSafety.hideFloating();
+        } else {
+            showOrHideHelper.hideFloating();
+        }
     }
 
     protected void showFloating() {
-        showOrHideHelper.showFloating();
+        if(DashboardUtils.getDOUBLE_SAFETY()){
+            showOrHideHelperSafety.showFloating();
+        } else {
+            showOrHideHelper.showFloating();
+        }
     }
+
 
 }

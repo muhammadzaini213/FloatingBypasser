@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.ibnucoding.iceloating.R;
+import com.ibnucoding.iceloating.adjustwindow.Utils;
 import com.ibnucoding.iceloating.window.webview.Counter;
 import com.ibnucoding.iceloating.window.webview.WebviewListener;
 
@@ -289,12 +290,14 @@ public class KeyboardItems {
         paste_btn.setOnClickListener(view -> {
             ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
 
-            if(counter < 7){
-                Counter.addCount();
-                counter = Counter.getCounter();
-            } else {
-                Toast.makeText(context, "Gunakan aplikasi premium untuk salinan yang tak terbatas!", Toast.LENGTH_SHORT).show();
-                return;
+            if(!Utils.getAofeohofw()){
+                if(counter < 7){
+                    Counter.addCount();
+                    counter = Counter.getCounter();
+                } else {
+                    Toast.makeText(context, "Gunakan aplikasi premium untuk salinan yang tak terbatas!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
 
             if (clipboard.hasPrimaryClip()) {

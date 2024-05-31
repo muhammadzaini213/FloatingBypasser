@@ -27,11 +27,12 @@ import com.ibnucoding.iceloating.R;
 import com.ibnucoding.iceloating.dashboard.DashboardUtils;
 import com.ibnucoding.iceloating.window.floatingbackground.FloatingBackgroundListener;
 import com.ibnucoding.iceloating.window.floatingwindow.bottomnavbar.BottomNavbarLayer2Item;
+import com.ibnucoding.iceloating.window.floatingwindow.helper.FloatingShowOrHideHelperSafety;
 
 public class FloatingWindow extends Service implements SensorEventListener {
 
     boolean isFloatingActive;
-    private ViewGroup floatView;
+    private ViewGroup floatView, safetyView;
     private WindowManager windowManager;
     private SensorManager sensorManager;
     private Sensor accelerometer;
@@ -51,10 +52,12 @@ public class FloatingWindow extends Service implements SensorEventListener {
             floatView = (ViewGroup) inflater.inflate(R.layout.window_floating_window, null);
             windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
+            safetyView = (ViewGroup) inflater.inflate(R.layout.window_double_safety, null);
+
             SharedPreferences sp = getSharedPreferences("FLOATING_BROWSER", Activity.MODE_PRIVATE);
 
             utils = new FloatingWindowUtils(sp);
-            utils.init(floatView, windowManager, metrics);
+            utils.init(floatView, safetyView, windowManager, metrics);
 
             isFloatingActive = true;
 
@@ -132,7 +135,6 @@ public class FloatingWindow extends Service implements SensorEventListener {
             Toast.makeText(getApplicationContext(), "Sensor getar diaktifkan, goyangkan perangkat anda saat ingin memunculkan Iceloating", Toast.LENGTH_LONG).show();
         }
 
-
     }
 
     @Nullable
@@ -152,6 +154,11 @@ public class FloatingWindow extends Service implements SensorEventListener {
         if (sensorManager != null) {
             sensorManager.unregisterListener(this);
         }
+
+        if(FloatingShowOrHideHelperSafety.isSafetyActive()){
+            windowManager.removeView(safetyView);
+        }
+
 
         stopSelf();
     }
@@ -199,10 +206,12 @@ public class FloatingWindow extends Service implements SensorEventListener {
                 floatView = (ViewGroup) inflater.inflate(R.layout.window_floating_window, null);
                 windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
+                safetyView = (ViewGroup) inflater.inflate(R.layout.window_double_safety, null);
+
                 SharedPreferences sp = getSharedPreferences("FLOATING_BROWSER", Activity.MODE_PRIVATE);
 
                 utils = new FloatingWindowUtils(sp);
-                utils.init(floatView, windowManager, metrics);
+                utils.init(floatView, safetyView, windowManager, metrics);
 
                 isFloatingActive = true;
 

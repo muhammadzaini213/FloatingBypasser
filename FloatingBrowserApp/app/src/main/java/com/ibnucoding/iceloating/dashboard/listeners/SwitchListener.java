@@ -26,6 +26,9 @@ Activity activity;
         } else if (position == 7) {
             DashboardUtils.setUSE_VIBRATION(isChecked);
             showAd();
+        } else if (position == 8) {
+            showAd();
+            DashboardUtils.setDOUBLE_SAFETY(isChecked);
         }
 
     }
