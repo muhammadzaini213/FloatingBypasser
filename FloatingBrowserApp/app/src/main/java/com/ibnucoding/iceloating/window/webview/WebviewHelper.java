@@ -2,6 +2,7 @@ package com.ibnucoding.iceloating.window.webview;
 
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -23,6 +24,7 @@ public class WebviewHelper {
         searchTextField = textFieldContainer.findViewById(R.id.url_text_field);
 
         WebSettings webSettings = webView.getSettings();
+        webView.setWebChromeClient(new WebChromeClient());
         webView.setWebViewClient(new CustomWebViewClient());
         webSettings.setDefaultFontSize(12);
         webSettings.setDomStorageEnabled(true);

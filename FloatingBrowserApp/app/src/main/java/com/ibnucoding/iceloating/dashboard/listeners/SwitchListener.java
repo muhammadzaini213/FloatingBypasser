@@ -2,10 +2,13 @@ package com.ibnucoding.iceloating.dashboard.listeners;
 
 import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.ibnucoding.iceloating.R;
+import com.ibnucoding.iceloating.adjustwindow.Utils;
 import com.ibnucoding.iceloating.dashboard.DashboardUtils;
 
 public class SwitchListener {
@@ -14,21 +17,38 @@ Activity activity;
     public SwitchListener(int position, boolean isChecked, Activity activity, InterstitialAd mIntersititialAd) {
         this.activity = activity;
         this.mInterstitialAd = mIntersititialAd;
-        if (position == 4) {
-            DashboardUtils.setUnfocusBoolean(isChecked);
-            showAd();
-        } else if (position == 5) {
-            DashboardUtils.setHiddenMode(isChecked);
-            showAd();
-        } else if (position == 6) {
-            DashboardUtils.setAntiObscure(isChecked);
-            showAd();
-        } else if (position == 7) {
-            DashboardUtils.setUSE_VIBRATION(isChecked);
-            showAd();
-        } else if (position == 8) {
-            showAd();
-            DashboardUtils.setDOUBLE_SAFETY(isChecked);
+
+        switch (position){
+            case 5:
+                DashboardUtils.setUnfocusBoolean(isChecked);
+                showAd();
+                break;
+            case 6:
+                DashboardUtils.setHiddenMode(isChecked);
+                showAd();
+                break;
+            case 7:
+                DashboardUtils.setAntiObscure(isChecked);
+                showAd();
+                break;
+            case 8:
+                DashboardUtils.setUSE_VIBRATION(isChecked);
+                showAd();
+                break;
+            case 9:
+                showAd();
+                DashboardUtils.setDOUBLE_SAFETY(isChecked);
+                DashboardUtils.setAntiObscureSafety(isChecked);
+                break;
+
+            case 10:
+                showAd();
+                if(Utils.getAofeohofw()){
+                    DashboardUtils.setBOTTLE_OPENER(isChecked);
+                } else {
+                    Toast.makeText(activity, activity.getString(R.string.bottle_opener_nonpremium), Toast.LENGTH_LONG).show();
+                }
+                break;
         }
 
     }

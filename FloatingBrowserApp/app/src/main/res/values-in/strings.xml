@@ -34,6 +34,10 @@
     <string name="adjust_window_title">Sesuaikan Window</string>
     <string name="adjust_window_desc">Sesuaikan lokasi jendela mengambang pada layar sesuai keinginan anda.</string>
 
+    <string name="text_freezer_title">Text Freezer</string>
+    <string name="text_freezer_desc">(Baru) Simpan teks anda disini dan baca nanti.</string>
+    <string name="insert_text_freezer">Masukkan teks anda disini…</string>
+
     <string name="terminal_title">Terminal</string>
     <string name="terminal_desc">Gunakan beberapa alat dengan fungsi yang beragam secara online. Fitur ini masih experimental.</string>
 
@@ -47,14 +51,18 @@
     <string name="hidden_mode_desc">Mode yang membantu pengguna untuk menyembunyikan floating browser sepenuhnya saat disembunyikam.</string>
 
     <string name="anti_obscure_title">Anti Obscure</string>
-    <string name="anti_obscure_desc">Mempersulit deteksi anti obscure motion event mendeteksi aplikasi ini. Gunakan tombol volume untuk mengaktifkan.</string>
+    <string name="anti_obscure_desc">Mempersulit deteksi anti obscure motion event mendeteksi aplikasi ini. Gunakan tombol volume untuk mengaktifkan. Fitur ini bisa digunakan bersamaan dengan fitur gunakan getaran.</string>
 
 
     <string name="double_safety_title">Double Safety</string>
-    <string name="double_safety_desc">(Belum selesai) Membutuhkan dua tombol untuk memunculkan Iceloating Browser.</string>
+    <string name="double_safety_desc">(Baru) Membutuhkan dua langkah atau lebih untuk memunculkan Iceloating Browser. Mencegah Iceloating muncul di saat yang tidak diinginkan.</string>
 
     <string name="use_vibration_title">Gunakan Getaran</string>
-    <string name="use_vibration_desc">Goyangkan perangkat untuk memunculkan Iceloating Browser, fitur ini sebagai alternatif anti obscure.</string>
+    <string name="use_vibration_desc">(Baru) Goyangkan perangkat untuk memunculkan Iceloating Browser, fitur ini sebagai alternatif anti obscure.</string>
+
+    <string name="bottle_opener_title">Bottle Opener</string>
+    <string name="bottle_opener_desc">(Eksperimental) Memungkinkan anda untuk membuka layanan dari aplikasi lain, aktifkan dengan menekan tombol Home selama beberapa detik. (Tidak bisa dicampurkan dengan fitur Matikan Fokus).</string>
+    <string name="bottle_opener_nonpremium">Hanya untuk premium, jika ingin mencoba, hubungi IbnuCoding!</string>
 
     <string name="activate">Aktifkan</string>
     <string name="deactivate_notification">Tekan lama tombol matikan untuk mematikan floating browser</string>

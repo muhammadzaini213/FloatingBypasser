@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class BottomNavbarLayer2Item {
 
-    private static FloatingWindowListener mlistener;
+    public static FloatingWindowListener mlistener;
     private static FloatingKeyboardListener klistener;
     private static StopForegroundListener slistener;
 
@@ -32,6 +32,9 @@ public class BottomNavbarLayer2Item {
     /*
     Layer2 items contains listener for communicating with other services
      */
+
+    int counter;
+
     protected void layer2ClickListener(LinearLayout layer2, WebView webView, ViewGroup floatView) {
         ImageView hide_button = layer2.findViewById(R.id.hide_button);
         ImageView keyboard_button = layer2.findViewById(R.id.keyboard_button);
@@ -43,21 +46,57 @@ public class BottomNavbarLayer2Item {
         ImageView show_floating = floatView.findViewById(R.id.show_floating);
 
 
-        stop_bypass.setOnClickListener(v -> {
-            mlistener.onStopBypassButtonClick();
-        });
+        if (!DashboardUtils.getDOUBLE_SAFETY()) {
+            stop_bypass.setOnClickListener(v -> {
+                mlistener.onStopBypassButtonClick();
+            });
+        } else {
+            stop_bypass.setOnClickListener(view -> {
+                if (SafetyCounter.getCounter() < 7) {
+                    SafetyCounter.setCounter(counter);
+                    counter = SafetyCounter.getCounter();
+                    return;
+                }
+                mlistener.onStopBypassButtonClick();
 
+            });
+        }
+
+
+        if (DashboardUtils.getDOUBLE_SAFETY()) {
+            show_floating.setOnLongClickListener(view -> {
+                isSafetyActive = FloatingShowOrHideHelperSafety.getIsSafetyTouched();
+                if (isSafetyActive) {
+                    mlistener.onShowFloatingButtonClick();
+                    FloatingShowOrHideHelperSafety.setIsSafetyTouched(false);
+                    FloatingShowOrHideHelperSafety.setIsSafetyOn(false);
+                }
+                return false;
+            });
+        }
 
         show_floating.setOnClickListener(v -> {
-            if (DashboardUtils.getDOUBLE_SAFETY()) {
-                isSafetyActive = FloatingShowOrHideHelperSafety.getIsSafetyTouched();
-                if(isSafetyActive){
-                    mlistener.onShowFloatingButtonClick();
-                }
+            if (DashboardUtils.getDOUBLE_SAFETY() && DashboardUtils.getANTI_OBSCURE_SAFETY()) {
+
             } else {
                 mlistener.onShowFloatingButtonClick();
             }
         });
+
+        if(DashboardUtils.getANTI_OBSCURE_SAFETY()){
+            show_floating.setOnLongClickListener(view -> {
+                mlistener.onShowFloatingButtonClick();
+                return false;
+            });
+        }
+
+        if(DashboardUtils.getANTI_OBSCURE_SAFETY() && DashboardUtils.getUSE_VIBRATION()){
+            show_floating.setOnLongClickListener(view -> {
+                mlistener.onShowFloatingButtonClick();
+                return false;
+            });
+        }
+
 
         hide_button.setOnClickListener(v -> {
             mlistener.onHideButtonClick();
@@ -130,7 +169,7 @@ public class BottomNavbarLayer2Item {
             @Override
             public boolean onLongClick(View v) {
                 // Start a delayed action after 3 seconds
-                handler.postDelayed(longPressAction, 3000);
+                handler.postDelayed(longPressAction, 1000);
                 return true;
             }
         });

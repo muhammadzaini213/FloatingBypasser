@@ -1,5 +1,6 @@
 package com.ibnucoding.iceloating.window.floatingwindow.bottomnavbar;
 
+import android.content.Context;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
@@ -10,7 +11,7 @@ public class BottomNavbarItems {
 
     ViewGroup floatView;
 
-    public void setOnClick(ViewGroup floatView) {
+    public void setOnClick(ViewGroup floatView, Context context) {
         this.floatView = floatView;
         WebView webView = floatView.findViewById(R.id.floating_webview);
         LinearLayout bottom_navbar = floatView.findViewById(R.id.bottom_navigation_bar);
@@ -19,7 +20,7 @@ public class BottomNavbarItems {
 
         BottomNavbarLayer1Item layer1Item = new BottomNavbarLayer1Item();
         BottomNavbarLayer2Item layer2Item = new BottomNavbarLayer2Item();
-        layer1Item.layer1ClickListener(layer1, layer2, webView);
+        layer1Item.layer1ClickListener(layer1, layer2, webView, context, floatView);
         layer2Item.layer2ClickListener(layer2, webView, floatView);
 
     }

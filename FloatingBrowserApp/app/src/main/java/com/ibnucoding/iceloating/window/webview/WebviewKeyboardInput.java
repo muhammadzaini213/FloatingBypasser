@@ -1,9 +1,7 @@
 package com.ibnucoding.iceloating.window.webview;
 
-import android.content.ClipboardManager;
 import android.webkit.WebView;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.ibnucoding.iceloating.window.floatingkeyboard.helper.KeyboardItems;
 

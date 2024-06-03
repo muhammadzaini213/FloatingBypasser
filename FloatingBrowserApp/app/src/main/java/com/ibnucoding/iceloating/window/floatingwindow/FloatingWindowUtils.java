@@ -1,5 +1,6 @@
 package com.ibnucoding.iceloating.window.floatingwindow;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.DisplayMetrics;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import com.ibnucoding.iceloating.window.floatingwindow.bottomnavbar.BottomNavbar
 import com.ibnucoding.iceloating.window.floatingwindow.helper.FloatingBypassModeHelper;
 import com.ibnucoding.iceloating.window.floatingwindow.helper.FloatingShowOrHideHelper;
 import com.ibnucoding.iceloating.window.floatingwindow.helper.FloatingShowOrHideHelperSafety;
+import com.ibnucoding.iceloating.window.floatingwindow.modechanger.ModeChangeHelper;
 import com.ibnucoding.iceloating.window.webview.WebviewHelper;
 
 public class FloatingWindowUtils {
@@ -25,13 +27,17 @@ public class FloatingWindowUtils {
     }
 
 
-    protected void init(ViewGroup floatView, ViewGroup safetyView, WindowManager windowManager, DisplayMetrics metrics) {
+    protected void init(ViewGroup floatView, ViewGroup safetyView, WindowManager windowManager, DisplayMetrics metrics, Context context) {
         this.floatView = floatView;
         this.windowManager = windowManager;
 
         BottomNavbarItems navbarItems = new BottomNavbarItems();
         WebviewHelper webviewHelper = new WebviewHelper();
+        ModeChangeHelper changeHelper = new ModeChangeHelper();
 
+        if (DashboardUtils.getDOUBLE_SAFETY() && DashboardUtils.getANTI_OBSCURE()) {
+            DashboardUtils.setDOUBLE_SAFETY(false);
+        }
         if (DashboardUtils.getDOUBLE_SAFETY()) {
             showOrHideHelperSafety = new FloatingShowOrHideHelperSafety();
             showOrHideHelperSafety.init(floatView, safetyView, windowManager, metrics, sp);
@@ -42,13 +48,16 @@ public class FloatingWindowUtils {
 
         bypassModeHelper = new FloatingBypassModeHelper(floatView, windowManager, metrics, sp);
 
-        navbarItems.setOnClick(floatView);
+        navbarItems.setOnClick(floatView, context);
         webviewHelper.setWebView(floatView);
+        changeHelper.setChangeMode(floatView, sp, context);
+
         startFloating();
+
 
     }
 
-    protected void startFloating() {
+    public void startFloating() {
         if (DashboardUtils.getDOUBLE_SAFETY()) {
             showOrHideHelperSafety.startFloating();
         } else {
@@ -69,7 +78,7 @@ public class FloatingWindowUtils {
     }
 
     protected void showFloating() {
-        if(DashboardUtils.getDOUBLE_SAFETY()){
+        if (DashboardUtils.getDOUBLE_SAFETY()) {
             showOrHideHelperSafety.showFloating();
         } else {
             showOrHideHelper.showFloating();

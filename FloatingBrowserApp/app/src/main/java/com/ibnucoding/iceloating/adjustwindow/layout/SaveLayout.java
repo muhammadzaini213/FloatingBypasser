@@ -15,20 +15,9 @@ public class SaveLayout {
         saveShowButton(view, editor);
         saveFloatingKeyboard(view, editor);
         saveFloatingWindow(view, editor);
-        saveDoubleSafety(view, editor);
     }
 
-    private void saveDoubleSafety(View view, SharedPreferences.Editor editor) {
-        ConstraintLayout double_safety_container = view.findViewById(R.id.double_safety_container);
-        ImageView double_safety_button = double_safety_container.findViewById(R.id.double_safety_button);
 
-        editor.putInt("SAFETY_WIDTH", (int) double_safety_button.getWidth());
-        editor.putInt("SAFETY_HEIGHT", (int) double_safety_button.getHeight());
-        editor.putInt("SAFETY_XPOS", (int) double_safety_container.getX());
-        editor.putInt("SAFETY_YPOS", (int) double_safety_container.getY());
-        editor.apply();
-
-    }
     private void saveShowButton(View view, SharedPreferences.Editor editor) {
         ConstraintLayout showbutton_container = view.findViewById(R.id.showbutton_container);
         ImageView showbutton_button = showbutton_container.findViewById(R.id.showbutton_button);

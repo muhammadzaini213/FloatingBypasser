@@ -12,6 +12,9 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
     <uses-permission android:name="android.permission.READ_CLIPBOARD" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
     <queries>
         <intent>
@@ -21,6 +24,12 @@
         </intent>
     </queries>
 
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
 
 
     <application
@@ -37,7 +46,7 @@
             android:value="ca-app-pub-9202355295382068~2607921155"/>
 
         <activity
-            android:name=".HomeActivity"
+            android:name="com.ibnucoding.iceloating.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,9 +54,10 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".window.floatingwindow.FloatingWindow" />
-        <service android:name=".window.floatingkeyboard.FloatingKeyboard" />
-        <service android:name=".window.floatingbackground.FloatingBackground" android:foregroundServiceType="dataSync|mediaPlayback|specialUse"/>
+        <service android:name="com.ibnucoding.iceloating.window.floatingwindow.FloatingWindow" />
+        <service android:name="com.ibnucoding.iceloating.window.floatingkeyboard.FloatingKeyboard" />
+        <service android:name="com.ibnucoding.iceloating.window.floatingbackground.FloatingBackground" android:foregroundServiceType="dataSync|mediaPlayback|specialUse"/>
+        <service android:name="com.ibnucoding.iceloating.window.ServiceTest"/>
     </application>
 
 </manifest>

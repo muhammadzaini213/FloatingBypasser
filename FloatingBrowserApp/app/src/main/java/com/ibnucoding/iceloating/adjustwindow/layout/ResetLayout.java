@@ -15,23 +15,8 @@ public class ResetLayout {
         resetShowButton(view, density);
         resetFloatingWindow(view, density);
         resetFloatingKeyboard(view, density);
-        resetDoubleSafety(view, density);
     }
 
-    private void resetDoubleSafety(View view, float density) {
-        ConstraintLayout safety_container = view.findViewById(R.id.double_safety_container);
-        ImageView safety_button = safety_container.findViewById(R.id.double_safety_button);
-
-        int newWidth = (int) (100 * density);
-        int newHeight = (int) (100 * density);
-
-        ViewGroup.LayoutParams layoutParams = safety_button.getLayoutParams();
-        layoutParams.width = newWidth;
-        layoutParams.height = newHeight;
-        safety_button.setLayoutParams(layoutParams);
-        safety_container.setX(0);
-        safety_container.setY(0);
-    }
 
 
     private void resetShowButton(View view, float density) {

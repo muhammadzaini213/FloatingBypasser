@@ -43,26 +43,38 @@
     <string name="adjust_window_title">Adjust Window</string>
     <string name="adjust_window_desc">Adjust the default window location on screen as you wish.</string>
 
+    <string name="text_freezer_title">Text Freezer</string>
+    <string name="text_freezer_desc">Save your text inside this then safe to read later</string>
+
+    <string name="insert_text_freezer">Insert your text here…</string>
+
     <string name="terminal_title">Terminal</string>
-    <string name="terminal_desc">Use sets of different useful tools online, this feature is experimental.</string>
+    <string name="terminal_desc">Use sets of different useful tools online.</string>
 
     <string name="permission_status_title">Permission Status</string>
     <string name="permission_status_desc">Current permission status for this application.</string>
 
     <string name="float_unfocused_title">Float Unfocused</string>
-    <string name="float_unfocused_desc">Make sure the floating browser wont detected by another app with onWindowFocusChanged method, activating this will make user can only type with floating keyboard.</string>
+    <string name="float_unfocused_desc">Make sure the floating browser wont detected by another app with hasFocus, activating this will make user can only type with floating keyboard.</string>
 
     <string name="hidden_mode_title">Hidden Mode</string>
     <string name="hidden_mode_desc">A mode that allows user to hide show button completely when floating browser is hidden.</string>
 
     <string name="anti_obscure_title">Anti Obscure</string>
-    <string name="anti_obscure_desc">Make it more harder for motion event anti obscure method to detect this app. Use volume button to activate</string>
+    <string name="anti_obscure_desc">Make it more harder for motion event anti obscure method to detect this app. Use volume button to activate, you can mix this feature with use vibration.</string>
 
     <string name="use_vibration_title">Use Vibration</string>
     <string name="use_vibration_desc">Shake phone to show Iceloating browser, used as an alternative for Anti Obscure</string>
 
     <string name="double_safety_title">Double Safety</string>
-    <string name="double_safety_desc">Need two button to be clicked for showing Iceloating Browser</string>
+    <string name="double_safety_desc">(New) Need two or more steps for showing Iceloating Browser, preventing accidental click</string>
+
+    <string name="bottle_opener_title">Bottle Opener</string>
+    <string name="bottle_opener_desc">(Experimental) Allowing you to open another app services like floating, activate by holding home button for some seconds. (Can\'t be mixed with Float Unfocused)</string>
+    <string name="bottle_opener_nonpremium">Only in premium, if you want to try, ask IbnuCoding!</string>
+
+    <string name="bottle_opener_hint" translatable="false">com.example.app</string>
+
     <string name="at" translatable="false">"&#64;"</string>
 
     <string name="activate">Activate</string>

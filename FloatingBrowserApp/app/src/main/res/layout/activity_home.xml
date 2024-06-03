@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="@style/background">
+    android:layout_height="match_parent">
 
     <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
         android:layout_height="match_parent"
-        android:id="@+id/fragment_container"/>
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView2"
@@ -27,5 +27,57 @@
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-9202355295382068/5829815015"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/verification_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:text="Masukkan Lisensi Premium"/>
+
+
+        <EditText
+            android:id="@+id/id_textfield"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:hint="ID" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/button_style"
+            android:id="@+id/id_btn_verification"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="Verifikasi"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\nAtau\n"
+            android:textAlignment="center"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/button_style"
+            android:textStyle="bold"
+            android:id="@+id/free_version"
+            android:layout_gravity="center"
+            android:text="Mode Gratis"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

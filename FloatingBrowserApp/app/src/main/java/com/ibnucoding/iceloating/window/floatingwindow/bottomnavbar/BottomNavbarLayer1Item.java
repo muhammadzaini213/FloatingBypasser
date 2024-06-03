@@ -4,10 +4,15 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.content.Intent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.ibnucoding.iceloating.R;
 import com.ibnucoding.iceloating.dashboard.DashboardUtils;
@@ -17,14 +22,15 @@ public class BottomNavbarLayer1Item {
     ObjectAnimator rotateAnimator;
     ObjectAnimator translateYAnimator, scaleYAnimator;
     boolean isDrawerOpen;
+    Context context;
 
-    protected void layer1ClickListener(LinearLayout layer1, LinearLayout layer2, WebView webView) {
+    protected void layer1ClickListener(LinearLayout layer1, LinearLayout layer2, WebView webView, Context context, ViewGroup floatView) {
         ImageView back_button = layer1.findViewById(R.id.back_button);
         ImageView forward_button = layer1.findViewById(R.id.forward_button);
         ImageView home_button = layer1.findViewById(R.id.home_button);
         ImageView refresh_button = layer1.findViewById(R.id.refresh_button);
         ImageView menu_button = layer1.findViewById(R.id.menu_button);
-
+        this.context = context;
 
         back_button.setOnClickListener(v -> {
             if (webView.canGoBack()) {
@@ -47,6 +53,15 @@ public class BottomNavbarLayer1Item {
             }
         });
 
+
+        if (DashboardUtils.getBOTTLE_OPENER() && !DashboardUtils.getUnfocusBoolean()) {
+            home_button.setOnLongClickListener(view -> {
+                setBottleOpener(floatView);
+                return false;
+            });
+        }
+
+
         refresh_button.setOnClickListener(v -> {
             if (webView.getUrl() != null) {
                 webView.loadUrl(webView.getUrl());
@@ -61,7 +76,38 @@ public class BottomNavbarLayer1Item {
             }
         });
 
+
     }
+
+    private void setBottleOpener(ViewGroup floatView) {
+
+        floatView.findViewById(R.id.bottle_opener_layout).setVisibility(View.VISIBLE);
+
+
+        floatView.findViewById(R.id.exit_button).setOnClickListener(view -> {
+            floatView.findViewById(R.id.bottle_opener_layout).setVisibility(View.GONE);
+        });
+
+        floatView.findViewById(R.id.open_bottle).setOnClickListener(view -> {
+            EditText bottle_input = floatView.findViewById(R.id.bottle_opener_input);
+
+            if(bottle_input.getText().toString().isEmpty()){
+                Toast.makeText(context, "Input is empty", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            Intent launchIntent = context.getPackageManager().getLaunchIntentForPackage(bottle_input.getText().toString());
+            if (launchIntent != null) {
+                launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(launchIntent);
+            } else {
+                // Handle the case where the target app is not installed
+                Toast.makeText(context, "Target app is not installed", Toast.LENGTH_SHORT).show();
+            }
+
+        });
+
+    }
+
 
     private void openMenu(ImageView menu_button, LinearLayout layer2) {
         isDrawerOpen = true;

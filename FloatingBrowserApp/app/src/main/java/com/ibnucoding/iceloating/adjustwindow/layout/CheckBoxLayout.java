@@ -16,19 +16,16 @@ public class CheckBoxLayout {
 
         LinearLayout showview_checkbox = adjust_layout_title.findViewById(R.id.showview_checkbox);
         ConstraintLayout showbutton_container = view.findViewById(R.id.showbutton_container);
-        ConstraintLayout double_safety_container = view.findViewById(R.id.double_safety_container);
         View floating_window_container = view.findViewById(R.id.floating_window_container);
         View floating_keyboard_container = view.findViewById(R.id.floating_keyboard_container);
 
         CheckBox browser_checkbox = showview_checkbox.findViewById(R.id.browser_checkbox);
         CheckBox keyboard_checkbox = showview_checkbox.findViewById(R.id.keyboard_checkbox);
         CheckBox showbutton_checkbox = showview_checkbox.findViewById(R.id.showbutton_checkbox);
-        CheckBox double_safety_checkbox = showview_checkbox.findViewById(R.id.double_safety_checkbox);
 
         browser_checkbox.setChecked(true);
         keyboard_checkbox.setChecked(true);
         showbutton_checkbox.setChecked(true);
-        double_safety_checkbox.setChecked(true);
 
 
         //if not checked, hide the layout
@@ -56,13 +53,7 @@ public class CheckBoxLayout {
             }
         });
 
-        double_safety_checkbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                double_safety_container.setVisibility(View.VISIBLE);
-            } else {
-                double_safety_container.setVisibility(View.GONE);
-            }
-        });
+
 
     }
 }

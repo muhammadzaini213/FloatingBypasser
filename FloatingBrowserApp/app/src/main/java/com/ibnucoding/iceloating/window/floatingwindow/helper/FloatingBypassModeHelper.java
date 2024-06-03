@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -74,9 +73,6 @@ public class FloatingBypassModeHelper {
             isBypassMode = true;
         }
 
-
-
-
         hideLayout();
         updateLayout();
     }
@@ -101,7 +97,7 @@ public class FloatingBypassModeHelper {
 
     protected void hideLayout() {
         ConstraintLayout textFieldContainer = floatView.findViewById(R.id.text_field_container);
-        WebView webView = floatView.findViewById(R.id.floating_webview);
+        ConstraintLayout floatingContainer = floatView.findViewById(R.id.floating_container);
         LinearLayout bottom_navigation_bar = floatView.findViewById(R.id.bottom_navigation_bar);
         View background = floatView.findViewById(R.id.background);
         ImageView stop_bypass = floatView.findViewById(R.id.stop_bypass);
@@ -113,7 +109,7 @@ public class FloatingBypassModeHelper {
         button_move.setVisibility(View.GONE);
         background.setVisibility(View.GONE);
         textFieldContainer.setVisibility(View.GONE);
-        webView.setVisibility(View.GONE);
+        floatingContainer.setVisibility(View.GONE);
         bottom_navigation_bar.setVisibility(View.GONE);
 
 
@@ -122,7 +118,7 @@ public class FloatingBypassModeHelper {
 
     protected void showLayout() {
         ConstraintLayout textFieldContainer = floatView.findViewById(R.id.text_field_container);
-        WebView webView = floatView.findViewById(R.id.floating_webview);
+        ConstraintLayout floatingContainer = floatView.findViewById(R.id.floating_container);
         LinearLayout bottom_navigation_bar = floatView.findViewById(R.id.bottom_navigation_bar);
         View background = floatView.findViewById(R.id.background);
         ImageView stop_bypass = floatView.findViewById(R.id.stop_bypass);
@@ -132,7 +128,7 @@ public class FloatingBypassModeHelper {
         button_move.setVisibility(View.VISIBLE);
         background.setVisibility(View.VISIBLE);
         textFieldContainer.setVisibility(View.VISIBLE);
-        webView.setVisibility(View.VISIBLE);
+        floatingContainer.setVisibility(View.VISIBLE);
         bottom_navigation_bar.setVisibility(View.VISIBLE);
         stop_bypass.setVisibility(View.GONE);
         show_floating.setVisibility(View.GONE);

@@ -43,7 +43,8 @@ public class DashboardFragment extends Fragment implements DashboardAdapter.OnIt
         AdRequest adRequest = new AdRequest.Builder().build();
 
         InterstitialAd.load(requireContext(),"ca-app-pub-9202355295382068/3143107779", adRequest,
-                new InterstitialAdLoadCallback() {
+                new
+                        InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                         // The mInterstitialAd reference will be null until

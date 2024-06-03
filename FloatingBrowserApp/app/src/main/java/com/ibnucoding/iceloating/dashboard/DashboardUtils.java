@@ -59,6 +59,16 @@ public class DashboardUtils {
         return bANTI_OBSCURE;
     }
 
+    static boolean bANTI_OBSCURE_SAFETY;
+
+    public static void setAntiObscureSafety(boolean ANTI_OBSCURE_SAFETY) {
+        bANTI_OBSCURE_SAFETY = ANTI_OBSCURE_SAFETY;
+    }
+
+    public static boolean getANTI_OBSCURE_SAFETY() {
+        return bANTI_OBSCURE_SAFETY;
+    }
+
     static boolean bUSE_VIBRATION;
 
     public static void setUSE_VIBRATION(boolean USE_VIBRATION) {
@@ -79,4 +89,16 @@ public class DashboardUtils {
     public static boolean getDOUBLE_SAFETY(){
         return bDOUBLE_SAFETY;
     }
+
+    static boolean bBOTTLE_OPENER;
+
+    public static void setBOTTLE_OPENER(boolean BOTTLE_OPENER) {
+        bBOTTLE_OPENER = BOTTLE_OPENER;
+    }
+
+    public static boolean getBOTTLE_OPENER(){
+        return bBOTTLE_OPENER;
+    }
+
+
 }

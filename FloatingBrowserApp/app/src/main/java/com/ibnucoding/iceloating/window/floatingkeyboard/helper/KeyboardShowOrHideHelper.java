@@ -1,18 +1,13 @@
 package com.ibnucoding.iceloating.window.floatingkeyboard.helper;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-
-import com.ibnucoding.iceloating.R;
 
 public class KeyboardShowOrHideHelper {
     private final ViewGroup keyboardView;
@@ -37,8 +32,8 @@ public class KeyboardShowOrHideHelper {
     public void startFloating() {
         int LAYOUT_TYPE = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
 
-        intwidth = sp.getInt("FLOATING_KEYBOARD_WIDTH", 400 * density);
-        intheight = sp.getInt("FLOATING_KEYBOARD_HEIGHT", 330 * density);
+        intwidth = sp.getInt("FLOATING_KEYBOARD_WIDTH", 360 * density);
+        intheight = sp.getInt("FLOATING_KEYBOARD_HEIGHT", 300 * density);
 
         floatKeyboardLayoutParam = new WindowManager.LayoutParams(
                 intwidth,

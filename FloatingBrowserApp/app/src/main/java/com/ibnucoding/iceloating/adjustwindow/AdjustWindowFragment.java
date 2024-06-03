@@ -42,7 +42,6 @@ public class AdjustWindowFragment extends Fragment {
         showbutton_container = view.findViewById(R.id.showbutton_container);
         showbutton_button = showbutton_container.findViewById(R.id.showbutton_button);
 
-        double_safety_container = view.findViewById(R.id.double_safety_container);
         double_safety_button = view.findViewById(R.id.double_safety_button);
 
         floating_window_container = view.findViewById(R.id.floating_window_container);

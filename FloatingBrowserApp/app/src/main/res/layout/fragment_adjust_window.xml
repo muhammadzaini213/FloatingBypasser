@@ -71,8 +71,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/floating_keyboard_container"
-        android:layout_width="400dp"
-        android:layout_height="330dp"
+        android:layout_width="360dp"
+        android:layout_height="300dp"
         tools:ignore="MissingConstraints">
 
 
@@ -131,59 +131,6 @@
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/double_safety_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/double_safety_button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/button_double_safety"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/double_safety_option"
-            style="@style/container_style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/double_safety_minimize"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:src="@drawable/button_minimize" />
-
-            <ImageView
-                android:id="@+id/double_safety_move"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:src="@drawable/button_move" />
-
-            <ImageView
-                android:id="@+id/double_safety_zoom"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:src="@drawable/button_zoom" />
-
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/showbutton_container"
@@ -287,13 +234,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:text="Show Button" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:id="@+id/double_safety_checkbox"
-                android:text="Double Safety"/>
-
 
 
         </LinearLayout>

@@ -9,7 +9,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -20,7 +19,7 @@ import com.ibnucoding.iceloating.R;
 import com.ibnucoding.iceloating.dashboard.DashboardUtils;
 
 public class FloatingShowOrHideHelperSafety {
-    ViewGroup floatView, safetyView;
+    ViewGroup floatView;
     WindowManager windowManager;
     DisplayMetrics metrics;
     WindowManager.LayoutParams floatWindowLayoutParam;
@@ -32,13 +31,16 @@ public class FloatingShowOrHideHelperSafety {
 
     static boolean isSafetyTouched;
 
+    public static  void setIsSafetyTouched(boolean bIsSafetyTouched){
+        isSafetyTouched = bIsSafetyTouched;
+    }
+
     public static boolean getIsSafetyTouched() {
         return isSafetyTouched;
     }
 
     public void init(ViewGroup floatView, ViewGroup safetyView, WindowManager windowManager, DisplayMetrics metrics, SharedPreferences sp) {
         this.floatView = floatView;
-        this.safetyView = safetyView;
         this.windowManager = windowManager;
         this.metrics = metrics;
         this.sp = sp;
@@ -68,7 +70,7 @@ public class FloatingShowOrHideHelperSafety {
                     , intheight,
                     LAYOUT_TYPE,
                     WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |
-                            WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+                            WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN| WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
                     PixelFormat.TRANSLUCENT
             );
         }
@@ -145,7 +147,7 @@ public class FloatingShowOrHideHelperSafety {
                     intwidth
                     , intheight,
                     LAYOUT_TYPE,
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
                     PixelFormat.TRANSLUCENT
             );
         }
@@ -221,12 +223,12 @@ public class FloatingShowOrHideHelperSafety {
 
         hideLayout();
 
-        showSafety();
+//        showSafety();
     }
 
     private void hideLayout() {
         ConstraintLayout textFieldContainer = floatView.findViewById(R.id.text_field_container);
-        WebView webView = floatView.findViewById(R.id.floating_webview);
+        ConstraintLayout floatingContainer = floatView.findViewById(R.id.floating_container);
         LinearLayout bottom_navigation_bar = floatView.findViewById(R.id.bottom_navigation_bar);
         View background = floatView.findViewById(R.id.background);
         ImageView stop_bypass = floatView.findViewById(R.id.stop_bypass);
@@ -245,7 +247,7 @@ public class FloatingShowOrHideHelperSafety {
         button_move.setVisibility(View.GONE);
         background.setVisibility(View.GONE);
         textFieldContainer.setVisibility(View.GONE);
-        webView.setVisibility(View.GONE);
+        floatingContainer.setVisibility(View.GONE);
         bottom_navigation_bar.setVisibility(View.GONE);
         stop_bypass.setVisibility(View.GONE);
         show_floating.setVisibility(View.VISIBLE);
@@ -254,7 +256,7 @@ public class FloatingShowOrHideHelperSafety {
 
     private void showLayout() {
         ConstraintLayout textFieldContainer = floatView.findViewById(R.id.text_field_container);
-        WebView webView = floatView.findViewById(R.id.floating_webview);
+        ConstraintLayout floatingContainer = floatView.findViewById(R.id.floating_container);
         LinearLayout bottom_navigation_bar = floatView.findViewById(R.id.bottom_navigation_bar);
         View background = floatView.findViewById(R.id.background);
         RelativeLayout button_move = floatView.findViewById(R.id.button_move);
@@ -267,71 +269,67 @@ public class FloatingShowOrHideHelperSafety {
         button_move.setVisibility(View.VISIBLE);
         background.setVisibility(View.VISIBLE);
         textFieldContainer.setVisibility(View.VISIBLE);
-        webView.setVisibility(View.VISIBLE);
+        floatingContainer.setVisibility(View.VISIBLE);
         bottom_navigation_bar.setVisibility(View.VISIBLE);
         stop_bypass.setVisibility(View.GONE);
         show_floating.setVisibility(View.GONE);
 
 
-        if(FloatingShowOrHideHelperSafety.isSafetyActive()){
-            windowManager.removeView(safetyView);
-        }
 
         FloatingShowOrHideHelperSafety.setIsSafetyOn(false);
-
-
-    }
-
-
-    private void showSafety() {
-        int intSafetyWidth = sp.getInt("SAFETY_WIDTH", 60 * density);
-        int intSafetyHeight = sp.getInt("SAFETY_HEIGHT", 60 * density);
-
-        WindowManager.LayoutParams safetyLayoutParam = new WindowManager.LayoutParams(
-                intSafetyWidth,
-                intSafetyHeight,
-                LAYOUT_TYPE,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-                PixelFormat.TRANSLUCENT
-        );
-
-        ImageView safety_button = safetyView.findViewById(R.id.double_safety_button);
-
-        safety_button.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                switch (event.getAction()) {
-
-                    case MotionEvent.ACTION_DOWN:
-                        isSafetyTouched = true;
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        isSafetyTouched = false;
-
-                }
-                return false;
-            }
-
-
-        });
-
-        safetyLayoutParam.gravity = Gravity.START | Gravity.TOP;
-        safetyLayoutParam.x = sp.getInt("SAFETY_XPOS", 0);
-        safetyLayoutParam.y = sp.getInt("SAFETY_YPOS", 0);
-        windowManager.addView(safetyView, safetyLayoutParam);
-        FloatingShowOrHideHelperSafety.setIsSafetyOn(true);
-
-        HIDDEN_ACTIVE = DashboardUtils.getHiddenMode();
-
-        if (HIDDEN_ACTIVE) {
-            safety_button.setBackgroundColor(Color.TRANSPARENT);
-        } else {
-            safety_button.setBackgroundResource(R.drawable.button_double_safety);
-        }
+        isSafetyOn = false;
 
     }
+
+
+//    private void showSafety() {
+//        int intSafetyWidth = sp.getInt("SAFETY_WIDTH", 100 * density);
+//        int intSafetyHeight = sp.getInt("SAFETY_HEIGHT", 100 * density);
+//
+//        WindowManager.LayoutParams safetyLayoutParam = new WindowManager.LayoutParams(
+//                intSafetyWidth,
+//                intSafetyHeight,
+//                LAYOUT_TYPE,
+//                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+//                PixelFormat.TRANSLUCENT
+//        );
+//
+//        ImageView safety_button = safetyView.findViewById(R.id.double_safety_button);
+//
+//        safety_button.setOnTouchListener(new View.OnTouchListener() {
+//
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//
+//                switch (event.getAction()) {
+//
+//                    case MotionEvent.ACTION_DOWN:
+//                        FloatingShowOrHideHelperSafety.setIsSafetyTouched(true);
+//                        break;
+//                    case MotionEvent.ACTION_UP:
+//                        FloatingShowOrHideHelperSafety.setIsSafetyTouched(false);
+//                }
+//                return false;
+//            }
+//
+//
+//        });
+//
+//        safetyLayoutParam.gravity = Gravity.START | Gravity.TOP;
+//        safetyLayoutParam.x = sp.getInt("SAFETY_XPOS", (int) 0);
+//        safetyLayoutParam.y = sp.getInt("SAFETY_YPOS", (int) 100 * density);
+//        windowManager.addView(safetyView, safetyLayoutParam);
+//        FloatingShowOrHideHelperSafety.setIsSafetyOn(true);
+//
+//        HIDDEN_ACTIVE = DashboardUtils.getHiddenMode();
+//
+//        if (HIDDEN_ACTIVE) {
+//            safety_button.setBackgroundColor(Color.TRANSPARENT);
+//        } else {
+//            safety_button.setBackgroundResource(R.drawable.button_double_safety);
+//        }
+//
+//    }
 
     static boolean isSafetyOn;
 

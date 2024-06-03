@@ -13,6 +13,7 @@ import com.ibnucoding.iceloating.R;
 import com.ibnucoding.iceloating.adjustwindow.AdjustWindowListener;
 import com.ibnucoding.iceloating.adjustwindow.Utils;
 import com.ibnucoding.iceloating.dashboard.CheckService;
+import com.ibnucoding.iceloating.freezer.FreezerListener;
 import com.ibnucoding.iceloating.terminal.TerminalListener;
 
 public class ClickListener {
@@ -23,6 +24,12 @@ public class ClickListener {
 
     public static void setAdjustScreenListener(AdjustWindowListener listener) {
         alistener = listener;
+    }
+
+    public static FreezerListener flistener;
+
+    public static void setFreezerListener(FreezerListener listener) {
+        flistener = listener;
     }
 
     public static TerminalListener tlistener;
@@ -52,6 +59,10 @@ public class ClickListener {
                 break;
             case 2:
                 showAd();
+                flistener.onFreezerOpen();
+                break;
+            case 3:
+                showAd();
                 if (Utils.getAofeohofw()) {
                     tlistener.openTerminal();
                 } else {
@@ -60,7 +71,8 @@ public class ClickListener {
                             , Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case 3:
+
+            case 4:
                 showAd();
                 if (checkService.isPermissionGranted()) {
                     Toast.makeText(context, resources.getString(R.string.permission_granted)

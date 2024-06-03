@@ -23,7 +23,6 @@ public class AdjustingLayoutLogic {
         adjustFloatingKeyboard();
         adjustFloatingWindow();
         adjustShowButton();
-        adjustDoubleSafety();
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -198,63 +197,5 @@ public class AdjustingLayoutLogic {
         });
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-    private void adjustDoubleSafety() {
-        ConstraintLayout double_safety_container = view.findViewById(R.id.double_safety_container);
-
-        ImageView double_safety_button = double_safety_container.findViewById(R.id.double_safety_button);
-        LinearLayout double_safety_option = double_safety_container.findViewById(R.id.double_safety_option);
-
-        ImageView double_safety_minimize = double_safety_option.findViewById(R.id.double_safety_minimize);
-        ImageView double_safety_move = double_safety_option.findViewById(R.id.double_safety_move);
-        ImageView double_safety_zoom = double_safety_option.findViewById(R.id.double_safety_zoom);
-
-
-        double_safety_minimize.setOnClickListener(v -> {
-            int newWidth = (int) (double_safety_button.getWidth() - 5 * density);
-            int newHeight = (int) (double_safety_button.getHeight() - 5 * density);
-            ViewGroup.LayoutParams layoutParams = double_safety_button.getLayoutParams();
-            layoutParams.width = newWidth;
-            layoutParams.height = newHeight;
-            double_safety_button.setLayoutParams(layoutParams);
-        });
-
-
-        double_safety_move.setOnTouchListener(new View.OnTouchListener() {
-            private float dx, dy;
-            private int lastAction;
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getActionMasked()) {
-                    case MotionEvent.ACTION_DOWN:
-                        dx = double_safety_container.getX() - event.getRawX();
-                        dy = double_safety_container.getY() - event.getRawY();
-                        lastAction = MotionEvent.ACTION_DOWN;
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        float newX = event.getRawX() + dx;
-                        float newY = event.getRawY() + dy;
-
-                        double_safety_container.setX(newX);
-                        double_safety_container.setY(newY);
-                        lastAction = MotionEvent.ACTION_MOVE;
-                        break;
-                    default:
-                        return false;
-                }
-                return true;
-            }
-        });
-
-        double_safety_zoom.setOnClickListener(v -> {
-            int newWidth = (int) (double_safety_button.getWidth() + 5 * density);
-            int newHeight = (int) (double_safety_button.getHeight() + 5 * density);
-            ViewGroup.LayoutParams layoutParams = double_safety_button.getLayoutParams();
-            layoutParams.width = newWidth;
-            layoutParams.height = newHeight;
-            double_safety_button.setLayoutParams(layoutParams);
-        });
-    }
 }
 

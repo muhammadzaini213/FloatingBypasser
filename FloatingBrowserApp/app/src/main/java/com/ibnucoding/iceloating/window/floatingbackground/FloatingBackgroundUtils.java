@@ -48,11 +48,11 @@ public class FloatingBackgroundUtils {
         floatWindowLayoutParam.y = 0;
 
         windowManager.addView(backgroundView, floatWindowLayoutParam);
-
         blistener.backgroundActive();
     }
 
     public void stopFloating() {
+//        BottomNavbarLayer2Item.mlistener.onHideButtonClick();
         blistener.backgroundNonActive();
     }
 

@@ -48,6 +48,13 @@ public class AddList {
                 STATUS_DATA));
 
         dataList.add(new DashboardData(
+                resources.getString(R.string.text_freezer_title),
+                resources.getString(R.string.text_freezer_desc),
+                resources.getString(R.string.int_unused),
+                false,
+                STATUS_DATA));
+
+        dataList.add(new DashboardData(
                 resources.getString(R.string.terminal_title),
                 resources.getString(R.string.terminal_desc),
                 resources.getString(R.string.int_unused),
@@ -94,6 +101,11 @@ public class AddList {
                 resources.getString(R.string.int_unused),
                 false, SWITCH_DATA));
 
+        dataList.add(new DashboardData(
+                resources.getString(R.string.bottle_opener_title),
+                resources.getString(R.string.bottle_opener_desc),
+                resources.getString(R.string.int_unused),
+                false, SWITCH_DATA));
     }
 
     public void setAdapter(DashboardAdapter dashboardAdapter, RecyclerView recyclerView, java.util.List<DashboardData> dataList) {
