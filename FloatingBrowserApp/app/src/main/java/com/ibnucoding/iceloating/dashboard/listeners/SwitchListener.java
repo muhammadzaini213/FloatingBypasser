@@ -12,13 +12,14 @@ import com.ibnucoding.iceloating.adjustwindow.Utils;
 import com.ibnucoding.iceloating.dashboard.DashboardUtils;
 
 public class SwitchListener {
-InterstitialAd mInterstitialAd;
-Activity activity;
+    InterstitialAd mInterstitialAd;
+    Activity activity;
+
     public SwitchListener(int position, boolean isChecked, Activity activity, InterstitialAd mIntersititialAd) {
         this.activity = activity;
         this.mInterstitialAd = mIntersititialAd;
 
-        switch (position){
+        switch (position) {
             case 5:
                 DashboardUtils.setUnfocusBoolean(isChecked);
                 showAd();
@@ -43,7 +44,7 @@ Activity activity;
 
             case 10:
                 showAd();
-                if(Utils.getAofeohofw()){
+                if (Utils.getAofeohofw()) {
                     DashboardUtils.setBOTTLE_OPENER(isChecked);
                 } else {
                     Toast.makeText(activity, activity.getString(R.string.bottle_opener_nonpremium), Toast.LENGTH_LONG).show();
@@ -53,10 +54,10 @@ Activity activity;
 
     }
 
-    private void showAd(){
+    private void showAd() {
         if (mInterstitialAd != null) {
             mInterstitialAd.show(activity);
-            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                 @Override
                 public void onAdClicked() {
                     // Called when a click is recorded for an ad.

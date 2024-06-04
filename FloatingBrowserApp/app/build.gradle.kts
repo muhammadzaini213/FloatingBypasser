@@ -41,8 +41,10 @@ dependencies {
     implementation("com.google.android.gms:play-services-ads:23.0.0")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("com.google.firebase:firebase-firestore:25.0.0")
+    implementation("com.google.android.gms:play-services-vision:20.1.3")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    implementation ("com.google.android.gms:play-services-mlkit-text-recognition:17.0.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
 }

@@ -1,11 +1,16 @@
 package com.ibnucoding.iceloating.dashboard;
 
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,9 +37,10 @@ import java.util.ArrayList;
 public class DashboardFragment extends Fragment implements DashboardAdapter.OnItemClickListener,
         DashboardAdapter.OnSwitchChangeListener, DashboardAdapter.OnStringEntered {
 
-    private InterstitialAd mInterstitialAd;
     private static final String TAG = "ACTIVATE_FLOATING";
     CheckService checkService;
+    private InterstitialAd mInterstitialAd;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -42,9 +48,8 @@ public class DashboardFragment extends Fragment implements DashboardAdapter.OnIt
 
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(requireContext(),"ca-app-pub-9202355295382068/3143107779", adRequest,
-                new
-                        InterstitialAdLoadCallback() {
+        InterstitialAd.load(requireContext(), "ca-app-pub-9202355295382068/3143107779", adRequest,
+                new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                         // The mInterstitialAd reference will be null until
@@ -94,12 +99,20 @@ public class DashboardFragment extends Fragment implements DashboardAdapter.OnIt
         */
         activate_button.setOnClickListener(v -> {
             if (checkService.isPermissionGranted()) {
+                NotificationManager notificationManager = (NotificationManager) requireContext().getSystemService(Context.NOTIFICATION_SERVICE);
+                if (!notificationManager.isNotificationPolicyAccessGranted()) {
+                    Intent intent = new Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+                    startActivity(intent);
+                    Toast.makeText(requireContext(), "Please grant Do Not Disturb access permission.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 checkService.checkAndStopService(getContext());
                 checkService.startServices();
 
+
                 if (mInterstitialAd != null) {
                     mInterstitialAd.show(requireActivity());
-                    mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+                    mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                         @Override
                         public void onAdClicked() {
                             // Called when a click is recorded for an ad.
@@ -133,7 +146,6 @@ public class DashboardFragment extends Fragment implements DashboardAdapter.OnIt
                             Log.d(TAG, "Ad showed fullscreen content.");
                         }
                     });
-
                 } else {
                     Log.d("TAG", "The interstitial ad wasn't ready yet.");
                 }
@@ -147,15 +159,14 @@ public class DashboardFragment extends Fragment implements DashboardAdapter.OnIt
     }
 
 
-
     /*
-    * onItemClick, onSwitchChange, and onEnter is part of RecyclerView listener,
-    * this method gives a functionality for dashboard recyclerview items.
-    * onItemClick handle clicks from STATUS_LAYOUT.
-    * onSwitchChange handle switch changes from SWITCH_LAYOUT.
-    * onEnter handle entered items from STRING_LAYOUT.
-    * You can add more listener on dashboard/listeners/...
-    */
+     * onItemClick, onSwitchChange, and onEnter is part of RecyclerView listener,
+     * this method gives a functionality for dashboard recyclerview items.
+     * onItemClick handle clicks from STATUS_LAYOUT.
+     * onSwitchChange handle switch changes from SWITCH_LAYOUT.
+     * onEnter handle entered items from STRING_LAYOUT.
+     * You can add more listener on dashboard/listeners/...
+     */
     @Override
     public void onItemClick(int position) {
         new ClickListener(position, getResources(), getContext(), checkService, getActivity(), mInterstitialAd);

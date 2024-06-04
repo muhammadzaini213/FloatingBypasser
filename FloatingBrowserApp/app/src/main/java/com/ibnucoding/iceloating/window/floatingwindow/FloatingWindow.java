@@ -14,7 +14,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.IBinder;
-
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -31,15 +30,15 @@ import com.ibnucoding.iceloating.window.floatingwindow.helper.FloatingShowOrHide
 
 public class FloatingWindow extends Service implements SensorEventListener {
 
+    private static final int SHAKE_THRESHOLD = 800;
     boolean isFloatingActive;
+    FloatingWindowUtils utils;
     private ViewGroup floatView, safetyView;
     private WindowManager windowManager;
     private SensorManager sensorManager;
     private Sensor accelerometer;
-    private static final int SHAKE_THRESHOLD = 800;
     private long lastUpdate;
     private float last_x, last_y, last_z;
-    FloatingWindowUtils utils;
 
     @Override
     public void onCreate() {
@@ -124,7 +123,7 @@ public class FloatingWindow extends Service implements SensorEventListener {
 
 
         } else {
-            if(DashboardUtils.getANTI_OBSCURE()){
+            if (DashboardUtils.getANTI_OBSCURE()) {
                 DisplayMetrics metrics = getApplicationContext().getResources().getDisplayMetrics();
 
                 LayoutInflater inflater = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -280,7 +279,7 @@ public class FloatingWindow extends Service implements SensorEventListener {
     }
 
     private void onShake() {
-        if(!DashboardUtils.getANTI_OBSCURE()){
+        if (!DashboardUtils.getANTI_OBSCURE()) {
             if (!isFloatingActive) {
                 try {
                     DisplayMetrics metrics = getApplicationContext().getResources().getDisplayMetrics();

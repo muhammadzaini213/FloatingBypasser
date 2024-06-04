@@ -47,7 +47,7 @@ public class FloatingBypassModeHelper {
 
         HIDDEN_MODE = DashboardUtils.getHiddenMode();
         ImageView stop_bypass = floatView.findViewById(R.id.stop_bypass);
-        if(HIDDEN_MODE){
+        if (HIDDEN_MODE) {
             stop_bypass.setBackgroundColor(Color.TRANSPARENT);
         } else {
             stop_bypass.setBackgroundResource(R.drawable.button_stop_bypass);
@@ -63,7 +63,7 @@ public class FloatingBypassModeHelper {
         );
         floatWindowLayoutParam.gravity = Gravity.START | Gravity.TOP;
         floatWindowLayoutParam.x = sp.getInt("SHOWBUTTON_XPOS", 0);
-        floatWindowLayoutParam.y =  sp.getInt("SHOWBUTTON_YPOS", 0);
+        floatWindowLayoutParam.y = sp.getInt("SHOWBUTTON_YPOS", 0);
         windowManager.updateViewLayout(floatView, floatWindowLayoutParam);
 
         if (isBypassMode) {

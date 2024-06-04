@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ibnucoding.iceloating.R;
-import com.ibnucoding.iceloating.dashboard.listeners.ClickListener;
+import com.ibnucoding.iceloating.home.HomeActivity;
 import com.ibnucoding.iceloating.terminal.setup.TerminalAdapter;
 import com.ibnucoding.iceloating.terminal.setup.TerminalData;
 
@@ -28,13 +28,14 @@ import java.util.List;
 public class TerminalFragment extends Fragment {
 
     TerminalShell terminalShell;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_terminal, container, false);
 
         ImageView exit_terminal = view.findViewById(R.id.exit_terminal);
-        exit_terminal.setOnClickListener(v -> ClickListener.tlistener.onBackButton());
+        exit_terminal.setOnClickListener(v -> HomeActivity.hListener.dashboardFragment());
         RecyclerView shell_recyclerview = view.findViewById(R.id.shell_recyclerview);
         EditText shell_input = view.findViewById(R.id.shell_input);
         WebView terminal_webview = view.findViewById(R.id.terminal_webview);

@@ -2,9 +2,9 @@ package com.ibnucoding.iceloating.terminal.setup;
 
 
 public class TerminalData {
+    final int shellType;
     String shellText;
     int color;
-    final int shellType;
 
     public TerminalData(String shellText, int color, int shellType) {
         this.shellText = shellText;
@@ -19,6 +19,7 @@ public class TerminalData {
     public int getColor() {
         return color;
     }
+
     public int getShellType() {
         return shellType;
     }

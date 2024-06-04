@@ -14,11 +14,11 @@ public class KeyboardShowOrHideHelper {
     private final WindowManager windowManager;
 
     DisplayMetrics metrics;
+    SharedPreferences sp;
     private WindowManager.LayoutParams floatKeyboardLayoutParam;
     private int intwidth;
     private int intheight;
     private int density;
-    SharedPreferences sp;
 
     public KeyboardShowOrHideHelper(ViewGroup keyboardView, WindowManager windowManager, DisplayMetrics metrics, SharedPreferences sp) {
         this.keyboardView = keyboardView;
@@ -43,7 +43,7 @@ public class KeyboardShowOrHideHelper {
                 PixelFormat.TRANSLUCENT
         );
 
-        floatKeyboardLayoutParam.gravity = Gravity.START| Gravity.TOP;
+        floatKeyboardLayoutParam.gravity = Gravity.START | Gravity.TOP;
         floatKeyboardLayoutParam.x = sp.getInt("FLOATING_KEYBOARD_XPOS", 0);
         floatKeyboardLayoutParam.y = sp.getInt("FLOATING_KEYBOARD_YPOS", 0);
 

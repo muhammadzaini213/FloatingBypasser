@@ -46,7 +46,7 @@
             android:value="ca-app-pub-9202355295382068~2607921155"/>
 
         <activity
-            android:name="com.ibnucoding.iceloating.HomeActivity"
+            android:name="com.ibnucoding.iceloating.home.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,6 +58,8 @@
         <service android:name="com.ibnucoding.iceloating.window.floatingkeyboard.FloatingKeyboard" />
         <service android:name="com.ibnucoding.iceloating.window.floatingbackground.FloatingBackground" android:foregroundServiceType="dataSync|mediaPlayback|specialUse"/>
         <service android:name="com.ibnucoding.iceloating.window.ServiceTest"/>
+
+
     </application>
 
 </manifest>

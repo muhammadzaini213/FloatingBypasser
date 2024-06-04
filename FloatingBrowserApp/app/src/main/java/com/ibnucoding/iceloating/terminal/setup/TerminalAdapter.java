@@ -18,10 +18,10 @@ import java.util.List;
 
 public class TerminalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final List<TerminalData> shellList;
-
     private static final int NORMAL_SHELL = 1;
+    private final List<TerminalData> shellList;
     Context context;
+
     public TerminalAdapter(List<TerminalData> shellList, Context context) {
         this.shellList = shellList;
         this.context = context;
@@ -81,6 +81,13 @@ public class TerminalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return shellList.get(position).getShellType();
     }
 
+    private void copyToClipboard(String text) {
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("text", text);
+        clipboard.setPrimaryClip(clip);
+        Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show();
+    }
+
     // View holder for normal shell
     class NormalShellViewHolder extends RecyclerView.ViewHolder {
         TextView shellText;
@@ -90,13 +97,6 @@ public class TerminalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             shellText = itemView.findViewById(R.id.shell_text);
         }
 
-    }
-
-    private void copyToClipboard(String text) {
-        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText("text", text);
-        clipboard.setPrimaryClip(clip);
-        Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show();
     }
 
 }

@@ -23,17 +23,40 @@ public class BottomNavbarLayer2Item {
     public static FloatingWindowListener mlistener;
     private static FloatingKeyboardListener klistener;
     private static StopForegroundListener slistener;
-
+    int counter;
     private boolean isDekstopMode = false;
     private boolean isKeyboardActive = false;
-
-    private boolean isSafetyActive;
 
     /*
     Layer2 items contains listener for communicating with other services
      */
+    private boolean isSafetyActive;
+    private boolean longPressActivated;
+    private final Runnable longPressAction = new Runnable() {
+        @Override
+        public void run() {
+            longPressActivated = true;
+            mlistener.onDeactivateButtonLongPress();
+            klistener.onDeactivateButtonLongPress();
+            slistener.stopForeground();
+        }
+    };
 
-    int counter;
+    public static void setStopForegroundListener(StopForegroundListener listener) {
+        slistener = listener;
+    }
+
+    public static void setFloatingWindowListener(FloatingWindowListener listener) {
+        mlistener = listener;
+    }
+
+    public static void setKeyboardWindowListener(FloatingKeyboardListener listener) {
+        klistener = listener;
+    }
+
+    public static void deactivateKeyboard() {
+        klistener.onDeactivateButtonLongPress();
+    }
 
     protected void layer2ClickListener(LinearLayout layer2, WebView webView, ViewGroup floatView) {
         ImageView hide_button = layer2.findViewById(R.id.hide_button);
@@ -83,14 +106,14 @@ public class BottomNavbarLayer2Item {
             }
         });
 
-        if(DashboardUtils.getANTI_OBSCURE_SAFETY()){
+        if (DashboardUtils.getANTI_OBSCURE_SAFETY()) {
             show_floating.setOnLongClickListener(view -> {
                 mlistener.onShowFloatingButtonClick();
                 return false;
             });
         }
 
-        if(DashboardUtils.getANTI_OBSCURE_SAFETY() && DashboardUtils.getUSE_VIBRATION()){
+        if (DashboardUtils.getANTI_OBSCURE_SAFETY() && DashboardUtils.getUSE_VIBRATION()) {
             show_floating.setOnLongClickListener(view -> {
                 mlistener.onShowFloatingButtonClick();
                 return false;
@@ -190,32 +213,5 @@ public class BottomNavbarLayer2Item {
 
 
     }
-
-    public static void setStopForegroundListener(StopForegroundListener listener) {
-        slistener = listener;
-    }
-
-    public static void setFloatingWindowListener(FloatingWindowListener listener) {
-        mlistener = listener;
-    }
-
-    public static void setKeyboardWindowListener(FloatingKeyboardListener listener) {
-        klistener = listener;
-    }
-
-    public static void deactivateKeyboard() {
-        klistener.onDeactivateButtonLongPress();
-    }
-
-    private boolean longPressActivated;
-    private final Runnable longPressAction = new Runnable() {
-        @Override
-        public void run() {
-            longPressActivated = true;
-            mlistener.onDeactivateButtonLongPress();
-            klistener.onDeactivateButtonLongPress();
-            slistener.stopForeground();
-        }
-    };
 
 }

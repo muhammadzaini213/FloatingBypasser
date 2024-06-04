@@ -38,6 +38,7 @@ public class TerminalShell {
     String onlineCommand;
     String onlineScript;
     WebView webView;
+    String console;
 
     public TerminalShell(List<TerminalData> shellList, Resources resources, TerminalAdapter terminalAdapter, RecyclerView recyclerView) {
         this.shellList = shellList;
@@ -143,13 +144,12 @@ public class TerminalShell {
         }
     }
 
-    String console;
-
-    private void copyConsole(){
+    private void copyConsole() {
         if (console != null) {
             addShell(console, Color.WHITE, NORMAL_SHELL, 300);
         }
     }
+
     private void addShell(String input, int color, int shellType, int delay) {
         handler.postDelayed(() -> {
             shellList.add(new TerminalData(input, color, shellType));

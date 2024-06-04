@@ -10,34 +10,13 @@ import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.ibnucoding.iceloating.R;
-import com.ibnucoding.iceloating.adjustwindow.AdjustWindowListener;
 import com.ibnucoding.iceloating.adjustwindow.Utils;
 import com.ibnucoding.iceloating.dashboard.CheckService;
-import com.ibnucoding.iceloating.freezer.FreezerListener;
-import com.ibnucoding.iceloating.terminal.TerminalListener;
+import com.ibnucoding.iceloating.home.HomeActivity;
 
 public class ClickListener {
     Resources resources;
     Context context;
-
-    public static AdjustWindowListener alistener;
-
-    public static void setAdjustScreenListener(AdjustWindowListener listener) {
-        alistener = listener;
-    }
-
-    public static FreezerListener flistener;
-
-    public static void setFreezerListener(FreezerListener listener) {
-        flistener = listener;
-    }
-
-    public static TerminalListener tlistener;
-
-    public static void setTerminalListener(TerminalListener listener) {
-        tlistener = listener;
-    }
-
     Activity activity;
     InterstitialAd mInterstitialAd;
 
@@ -50,7 +29,7 @@ public class ClickListener {
             case 1:
                 showAd();
                 if (Utils.getAofeohofw()) {
-                    alistener.onAdjustWindowOpen();
+                    HomeActivity.hListener.adjustWindowFragment();
                 } else {
                     Toast.makeText(context, resources.getString(R.string.adjust_window_title) + " " +
                                     resources.getString(R.string.only_in_premium)
@@ -59,12 +38,12 @@ public class ClickListener {
                 break;
             case 2:
                 showAd();
-                flistener.onFreezerOpen();
+                HomeActivity.hListener.freezerFragment();
                 break;
             case 3:
                 showAd();
                 if (Utils.getAofeohofw()) {
-                    tlistener.openTerminal();
+                    HomeActivity.hListener.terminalFragment();
                 } else {
                     Toast.makeText(context, resources.getString(R.string.terminal_title) + " " +
                                     resources.getString(R.string.only_in_premium)

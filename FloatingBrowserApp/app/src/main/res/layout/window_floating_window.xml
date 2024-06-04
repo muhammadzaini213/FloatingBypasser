@@ -64,37 +64,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/floating_mode_web"
+            android:id="@+id/more_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:visibility="visible"
             style="@style/icon_style"
-            android:background="@drawable/button_web"
+            android:background="@drawable/ripple_effect"
+            android:src="@drawable/button_more"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/url_text_field"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/floating_mode_text"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            style="@style/icon_style"
-            android:visibility="gone"
-            android:background="@drawable/button_text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/url_text_field"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/view7"
-            style="@style/item_color"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginHorizontal="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_editor_absoluteX="20dp" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -119,6 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"
+            style="@style/text_style"
             android:textIsSelectable="true"
             android:hint="No Text"
             />
@@ -179,6 +163,63 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/top_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:visibility="gone"
+        style="@style/floating_background"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        app:layout_constraintTop_toBottomOf="@+id/text_field_container">
+
+        <ImageView
+            android:id="@+id/rotate_button"
+            style="@style/icon_style"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect"
+            android:src="@drawable/top_navbar_rotate" />
+
+        <ImageView
+            android:id="@+id/floating_mode_web"
+            style="@style/icon_style"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:src="@drawable/button_web"/>
+
+        <ImageView
+            android:id="@+id/floating_mode_text"
+            style="@style/icon_style"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:src="@drawable/top_navbar_note" />
+
+        <ImageView
+            android:id="@+id/image_button"
+            style="@style/icon_style"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:src="@drawable/top_navbar_image" />
+
+        <ImageView
+            android:id="@+id/scan_button"
+            style="@style/icon_style"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:src="@drawable/top_navbar_scan" />
+    </LinearLayout>
+
 
 
     <LinearLayout

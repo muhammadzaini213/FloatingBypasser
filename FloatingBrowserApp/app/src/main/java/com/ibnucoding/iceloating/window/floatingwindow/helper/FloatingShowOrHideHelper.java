@@ -66,7 +66,7 @@ public class FloatingShowOrHideHelper {
 
         floatWindowLayoutParam.gravity = Gravity.START | Gravity.TOP;
         floatWindowLayoutParam.x = sp.getInt("FLOATING_WINDOW_XPOS", 0);
-        floatWindowLayoutParam.y =  sp.getInt("FLOATING_WINDOW_YPOS", 0);
+        floatWindowLayoutParam.y = sp.getInt("FLOATING_WINDOW_YPOS", 0);
 
         windowManager.addView(floatView, floatWindowLayoutParam);
 
@@ -114,7 +114,7 @@ public class FloatingShowOrHideHelper {
         floatWindowLayoutParam.gravity = Gravity.START | Gravity.TOP;
 
         floatWindowLayoutParam.x = sp.getInt("FLOATING_WINDOW_XPOS", 0);
-        floatWindowLayoutParam.y =  sp.getInt("FLOATING_WINDOW_YPOS", 0);
+        floatWindowLayoutParam.y = sp.getInt("FLOATING_WINDOW_YPOS", 0);
         UNFOCUS_ACTIVE = DashboardUtils.getUnfocusBoolean();
 
         intwidth = sp.getInt("FLOATING_WINDOW_WIDTH", 300 * density);
@@ -180,7 +180,7 @@ public class FloatingShowOrHideHelper {
 
         floatWindowLayoutParam.gravity = Gravity.START | Gravity.TOP;
         floatWindowLayoutParam.x = sp.getInt("FLOATING_WINDOW_XPOS", 0);
-        floatWindowLayoutParam.y =  sp.getInt("FLOATING_WINDOW_YPOS", 0);
+        floatWindowLayoutParam.y = sp.getInt("FLOATING_WINDOW_YPOS", 0);
 
         windowManager.updateViewLayout(floatView, floatWindowLayoutParam);
         showLayout();
@@ -202,7 +202,7 @@ public class FloatingShowOrHideHelper {
         );
         floatWindowLayoutParam.gravity = Gravity.START | Gravity.TOP;
         floatWindowLayoutParam.x = sp.getInt("SHOWBUTTON_XPOS", 0);
-        floatWindowLayoutParam.y =  sp.getInt("SHOWBUTTON_YPOS", 0);
+        floatWindowLayoutParam.y = sp.getInt("SHOWBUTTON_YPOS", 0);
         windowManager.updateViewLayout(floatView, floatWindowLayoutParam);
 
 

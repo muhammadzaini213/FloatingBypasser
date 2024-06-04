@@ -18,7 +18,6 @@ public class ResetLayout {
     }
 
 
-
     private void resetShowButton(View view, float density) {
         ConstraintLayout showbutton_container = view.findViewById(R.id.showbutton_container);
         ImageView showbutton_button = showbutton_container.findViewById(R.id.showbutton_button);
@@ -50,8 +49,8 @@ public class ResetLayout {
     private void resetFloatingKeyboard(View view, float density) {
         View floating_keyboard_container = view.findViewById(R.id.floating_keyboard_container);
 
-        int newWidth = (int) (400 * density);
-        int newHeight = (int) (330 * density);
+        int newWidth = (int) (360 * density);
+        int newHeight = (int) (300 * density);
         ViewGroup.LayoutParams layoutParams = floating_keyboard_container.getLayoutParams();
         layoutParams.width = newWidth;
         layoutParams.height = newHeight;

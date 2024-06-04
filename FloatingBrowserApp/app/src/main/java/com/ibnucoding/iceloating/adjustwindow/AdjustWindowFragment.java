@@ -22,7 +22,7 @@ import com.ibnucoding.iceloating.adjustwindow.layout.CheckBoxLayout;
 import com.ibnucoding.iceloating.adjustwindow.layout.LoadLayout;
 import com.ibnucoding.iceloating.adjustwindow.layout.ResetLayout;
 import com.ibnucoding.iceloating.adjustwindow.layout.SaveLayout;
-import com.ibnucoding.iceloating.dashboard.listeners.ClickListener;
+import com.ibnucoding.iceloating.home.HomeActivity;
 
 public class AdjustWindowFragment extends Fragment {
 
@@ -62,7 +62,7 @@ public class AdjustWindowFragment extends Fragment {
         ConstraintLayout adjust_layout_title = view.findViewById(R.id.adjust_layout_title);
         ImageView dropdown_button = view.findViewById(R.id.dropdown_button);
         ImageView exit_button = adjust_layout_title.findViewById(R.id.exit_button);
-        exit_button.setOnClickListener(v -> ClickListener.alistener.onBackButton());
+        exit_button.setOnClickListener(v -> HomeActivity.hListener.dashboardFragment());
 
         dropdown_button.setOnClickListener(v -> {
                     if (isDropdownOpen) {
@@ -96,7 +96,7 @@ public class AdjustWindowFragment extends Fragment {
         });
         save_button.setOnClickListener(v -> {
             new SaveLayout(view, editor);
-            Toast.makeText(getContext(),"Saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         });
     }
 

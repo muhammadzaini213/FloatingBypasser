@@ -15,7 +15,6 @@ import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.IBinder;
-
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,16 +30,16 @@ import com.ibnucoding.iceloating.window.floatingbackground.floatingbackgroundhel
 import com.ibnucoding.iceloating.window.floatingwindow.bottomnavbar.BottomNavbarLayer2Item;
 
 public class FloatingBackground extends Service implements SensorEventListener {
+    private static final int SHAKE_THRESHOLD = 800;
     ViewGroup backgroundView;
     WindowManager windowManager;
     NotificationHelper notificationHelper;
     int volumePrev = 0;
     boolean isBackgroundActive = false;
+    FloatingBackgroundUtils utils;
     private BroadcastReceiver broadcastReceiver;
-
     private SensorManager sensorManager;
     private Sensor accelerometer;
-    private static final int SHAKE_THRESHOLD = 800;
     private long lastUpdate;
     private float last_x, last_y, last_z;
 
@@ -52,8 +51,6 @@ public class FloatingBackground extends Service implements SensorEventListener {
 
         return super.onStartCommand(intent, flags, startId);
     }
-
-    FloatingBackgroundUtils utils;
 
     @Override
     public void onCreate() {

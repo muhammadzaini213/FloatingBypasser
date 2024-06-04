@@ -61,7 +61,7 @@ public class FloatingKeyboard extends Service {
 
             @Override
             public void onDeactivateButtonLongPress() {
-               onDestroy();
+                onDestroy();
             }
         });
 

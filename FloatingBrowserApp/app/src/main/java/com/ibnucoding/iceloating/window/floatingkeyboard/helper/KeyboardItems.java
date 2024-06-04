@@ -18,21 +18,22 @@ import com.ibnucoding.iceloating.window.webview.WebviewListener;
 
 public class KeyboardItems {
 
-    View symbols;
     static WebviewListener wlistener;
+    View symbols;
     LinearLayout row_number, row_1, row_2, row_3;
     LinearLayout row_symbol, row_1_shift, row_2_shift, row_3_shift;
 
     Context context;
-
-    public static void setWebviewListener(WebviewListener listener) {
-        wlistener = listener;
-    }
+    int counter = 0;
 
     /*
     Set the clickListener and listener for keyboard items,
     those input would be sent to WebViewHelper class.
      */
+
+    public static void setWebviewListener(WebviewListener listener) {
+        wlistener = listener;
+    }
 
     public void init(ViewGroup keyboardView, Context context) {
         this.context = context;
@@ -67,8 +68,6 @@ public class KeyboardItems {
         symbolsMode();
 
     }
-
-
 
     private void setRowNumber(LinearLayout row_number) {
         AppCompatButton btn_1 = row_number.findViewById(R.id.btn_1);
@@ -287,8 +286,8 @@ public class KeyboardItems {
         paste_btn.setOnClickListener(view -> {
             ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
 
-            if(!Utils.getAofeohofw()){
-                if(counter < 7){
+            if (!Utils.getAofeohofw()) {
+                if (counter < 7) {
                     Counter.addCount();
                     counter = Counter.getCounter();
                 } else {
@@ -306,15 +305,12 @@ public class KeyboardItems {
                         wlistener.paste(pasteData.toString());
                     }
                 }
-            }
-            else {
+            } else {
                 Toast.makeText(context, "Clipboard kosong", Toast.LENGTH_SHORT).show();
             }
         });
 
     }
-
-    int counter = 0;
 
     private void openSymbol() {
         symbols.setVisibility(View.VISIBLE);
@@ -343,6 +339,7 @@ public class KeyboardItems {
         row_2_shift.setVisibility(View.GONE);
         row_3_shift.setVisibility(View.GONE);
     }
+
     private void shiftMode() {
         row_number.setVisibility(View.GONE);
         row_1.setVisibility(View.GONE);

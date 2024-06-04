@@ -155,47 +155,81 @@ public interface WebviewListener {
     void m_shift();
 
     void sym_1();
+
     void sym_2();
+
     void sym_3();
+
     void sym_4();
+
     void sym_5();
+
     void sym_6();
+
     void sym_7();
+
     void sym_8();
+
     void sym_9();
+
     void sym_10();
 
 
     void sym_11();
+
     void sym_12();
+
     void sym_13();
+
     void sym_14();
+
     void sym_15();
+
     void sym_16();
+
     void sym_17();
+
     void sym_18();
+
     void sym_19();
+
     void sym_20();
 
 
     void sym_21();
+
     void sym_22();
+
     void sym_23();
+
     void sym_24();
+
     void sym_25();
+
     void sym_26();
+
     void sym_27();
+
     void sym_28();
+
     void sym_29();
+
     void sym_30();
 
     void sym_31();
+
     void sym_32();
+
     void sym_33();
+
     void sym_34();
+
     void sym_35();
+
     void sym_36();
+
     void sym_37();
+
     void sym_38();
 
 

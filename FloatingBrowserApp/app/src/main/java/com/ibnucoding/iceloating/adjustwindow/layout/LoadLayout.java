@@ -38,8 +38,8 @@ public class LoadLayout {
         View floating_keyboard_container = view.findViewById(R.id.floating_keyboard_container);
 
         ViewGroup.LayoutParams layoutParams = floating_keyboard_container.getLayoutParams();
-        layoutParams.width = sp.getInt("FLOATING_KEYBOARD_WIDTH", (int) (400 * density));
-        layoutParams.height = sp.getInt("FLOATING_KEYBOARD_HEIGHT", (int) (330 * density));
+        layoutParams.width = sp.getInt("FLOATING_KEYBOARD_WIDTH", (int) (360 * density));
+        layoutParams.height = sp.getInt("FLOATING_KEYBOARD_HEIGHT", (int) (300 * density));
         floating_keyboard_container.setX(sp.getInt("FLOATING_KEYBOARD_XPOS", 0));
         floating_keyboard_container.setY(sp.getInt("FLOATING_KEYBOARD_YPOS", 0));
         floating_keyboard_container.setLayoutParams(layoutParams);

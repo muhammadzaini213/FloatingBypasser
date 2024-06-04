@@ -9,7 +9,7 @@
     <color name="white">#FFFFFF</color>
     <color name="grey">#4D4C4C</color>
     <color name="greyBackground">#212121</color>
-    <color name="iconColorBackground">#7E7E7E</color>
+    <color name="iconColorBackground">#999999</color>
 
 
     <color name="textColorBlack">#8F8E8E</color>

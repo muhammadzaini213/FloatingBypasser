@@ -19,6 +19,8 @@ import com.ibnucoding.iceloating.R;
 import com.ibnucoding.iceloating.dashboard.DashboardUtils;
 
 public class FloatingShowOrHideHelperSafety {
+    static boolean isSafetyTouched;
+    static boolean isSafetyOn;
     ViewGroup floatView;
     WindowManager windowManager;
     DisplayMetrics metrics;
@@ -29,14 +31,20 @@ public class FloatingShowOrHideHelperSafety {
     boolean HIDDEN_ACTIVE = false;
     SharedPreferences sp;
 
-    static boolean isSafetyTouched;
+    public static boolean getIsSafetyTouched() {
+        return isSafetyTouched;
+    }
 
-    public static  void setIsSafetyTouched(boolean bIsSafetyTouched){
+    public static void setIsSafetyTouched(boolean bIsSafetyTouched) {
         isSafetyTouched = bIsSafetyTouched;
     }
 
-    public static boolean getIsSafetyTouched() {
-        return isSafetyTouched;
+    public static void setIsSafetyOn(boolean mIsSafetyOn) {
+        isSafetyOn = mIsSafetyOn;
+    }
+
+    public static boolean isSafetyActive() {
+        return isSafetyOn;
     }
 
     public void init(ViewGroup floatView, ViewGroup safetyView, WindowManager windowManager, DisplayMetrics metrics, SharedPreferences sp) {
@@ -70,7 +78,7 @@ public class FloatingShowOrHideHelperSafety {
                     , intheight,
                     LAYOUT_TYPE,
                     WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |
-                            WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN| WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
+                            WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
                     PixelFormat.TRANSLUCENT
             );
         }
@@ -201,6 +209,56 @@ public class FloatingShowOrHideHelperSafety {
 
     }
 
+
+//    private void showSafety() {
+//        int intSafetyWidth = sp.getInt("SAFETY_WIDTH", 100 * density);
+//        int intSafetyHeight = sp.getInt("SAFETY_HEIGHT", 100 * density);
+//
+//        WindowManager.LayoutParams safetyLayoutParam = new WindowManager.LayoutParams(
+//                intSafetyWidth,
+//                intSafetyHeight,
+//                LAYOUT_TYPE,
+//                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+//                PixelFormat.TRANSLUCENT
+//        );
+//
+//        ImageView safety_button = safetyView.findViewById(R.id.double_safety_button);
+//
+//        safety_button.setOnTouchListener(new View.OnTouchListener() {
+//
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//
+//                switch (event.getAction()) {
+//
+//                    case MotionEvent.ACTION_DOWN:
+//                        FloatingShowOrHideHelperSafety.setIsSafetyTouched(true);
+//                        break;
+//                    case MotionEvent.ACTION_UP:
+//                        FloatingShowOrHideHelperSafety.setIsSafetyTouched(false);
+//                }
+//                return false;
+//            }
+//
+//
+//        });
+//
+//        safetyLayoutParam.gravity = Gravity.START | Gravity.TOP;
+//        safetyLayoutParam.x = sp.getInt("SAFETY_XPOS", (int) 0);
+//        safetyLayoutParam.y = sp.getInt("SAFETY_YPOS", (int) 100 * density);
+//        windowManager.addView(safetyView, safetyLayoutParam);
+//        FloatingShowOrHideHelperSafety.setIsSafetyOn(true);
+//
+//        HIDDEN_ACTIVE = DashboardUtils.getHiddenMode();
+//
+//        if (HIDDEN_ACTIVE) {
+//            safety_button.setBackgroundColor(Color.TRANSPARENT);
+//        } else {
+//            safety_button.setBackgroundResource(R.drawable.button_double_safety);
+//        }
+//
+//    }
+
     public void hideFloating() {
         intwidth = sp.getInt("SHOWBUTTON_WIDTH", 60 * density);
         intheight = sp.getInt("SHOWBUTTON_HEIGHT", 60 * density);
@@ -275,70 +333,9 @@ public class FloatingShowOrHideHelperSafety {
         show_floating.setVisibility(View.GONE);
 
 
-
         FloatingShowOrHideHelperSafety.setIsSafetyOn(false);
         isSafetyOn = false;
 
-    }
-
-
-//    private void showSafety() {
-//        int intSafetyWidth = sp.getInt("SAFETY_WIDTH", 100 * density);
-//        int intSafetyHeight = sp.getInt("SAFETY_HEIGHT", 100 * density);
-//
-//        WindowManager.LayoutParams safetyLayoutParam = new WindowManager.LayoutParams(
-//                intSafetyWidth,
-//                intSafetyHeight,
-//                LAYOUT_TYPE,
-//                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-//                PixelFormat.TRANSLUCENT
-//        );
-//
-//        ImageView safety_button = safetyView.findViewById(R.id.double_safety_button);
-//
-//        safety_button.setOnTouchListener(new View.OnTouchListener() {
-//
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//
-//                switch (event.getAction()) {
-//
-//                    case MotionEvent.ACTION_DOWN:
-//                        FloatingShowOrHideHelperSafety.setIsSafetyTouched(true);
-//                        break;
-//                    case MotionEvent.ACTION_UP:
-//                        FloatingShowOrHideHelperSafety.setIsSafetyTouched(false);
-//                }
-//                return false;
-//            }
-//
-//
-//        });
-//
-//        safetyLayoutParam.gravity = Gravity.START | Gravity.TOP;
-//        safetyLayoutParam.x = sp.getInt("SAFETY_XPOS", (int) 0);
-//        safetyLayoutParam.y = sp.getInt("SAFETY_YPOS", (int) 100 * density);
-//        windowManager.addView(safetyView, safetyLayoutParam);
-//        FloatingShowOrHideHelperSafety.setIsSafetyOn(true);
-//
-//        HIDDEN_ACTIVE = DashboardUtils.getHiddenMode();
-//
-//        if (HIDDEN_ACTIVE) {
-//            safety_button.setBackgroundColor(Color.TRANSPARENT);
-//        } else {
-//            safety_button.setBackgroundResource(R.drawable.button_double_safety);
-//        }
-//
-//    }
-
-    static boolean isSafetyOn;
-
-    public static void setIsSafetyOn(boolean mIsSafetyOn) {
-        isSafetyOn = mIsSafetyOn;
-    }
-
-    public static boolean isSafetyActive() {
-        return isSafetyOn;
     }
 
 

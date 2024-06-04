@@ -11,8 +11,8 @@ import android.provider.Settings;
 
 import androidx.core.app.NotificationCompat;
 
-import com.ibnucoding.iceloating.HomeActivity;
 import com.ibnucoding.iceloating.R;
+import com.ibnucoding.iceloating.home.HomeActivity;
 
 public class NotificationHelper {
 

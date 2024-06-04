@@ -9,8 +9,8 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp" />
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView2"
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             style="@style/button_style"
             android:textStyle="bold"
-            android:id="@+id/free_version"
+            android:id="@+id/free_mode"
             android:layout_gravity="center"
             android:text="Mode Gratis"/>
 

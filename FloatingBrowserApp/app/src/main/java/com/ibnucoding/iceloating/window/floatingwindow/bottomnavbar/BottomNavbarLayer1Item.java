@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
@@ -91,7 +92,7 @@ public class BottomNavbarLayer1Item {
         floatView.findViewById(R.id.open_bottle).setOnClickListener(view -> {
             EditText bottle_input = floatView.findViewById(R.id.bottle_opener_input);
 
-            if(bottle_input.getText().toString().isEmpty()){
+            if (bottle_input.getText().toString().isEmpty()) {
                 Toast.makeText(context, "Input is empty", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -104,8 +105,28 @@ public class BottomNavbarLayer1Item {
                 Toast.makeText(context, "Target app is not installed", Toast.LENGTH_SHORT).show();
             }
 
+//            Intent intent = new Intent();
+//            intent.setAction("com.lwi.android.flapss.ACTION_START_SERVICE");
+//            intent.setComponent(new ComponentName("com.lwi.android.flapss", "com.lwi.android.flapss.FloatingService"));
+//            context.startService(intent);
+//
+//            new Handler().postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    stop();
+//                    Toast.makeText(context, "Stop", Toast.LENGTH_LONG).show();
+//                }
+//            }, 5000);
         });
 
+
+    }
+
+    private void stop() {
+        Intent intent = new Intent();
+        intent.setAction("com.lwi.android.flapss.ACTION_STOP_SERVICE");
+        intent.setComponent(new ComponentName("com.lwi.android.flapss", "com.lwi.android.flapss.FloatingService"));
+        context.stopService(intent);
     }
 
 
