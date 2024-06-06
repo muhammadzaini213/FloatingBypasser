@@ -2,7 +2,7 @@
 
 Floating browser application with many
 tricks to bypass security detection. Intended for security testing for online exams. This application had many unique feature thats most other floating app never had.<br>
-[Bahasa Indonesia](https://github.com/muhammadzaini213/FloatingBrowser/blob/main/(In)%20Readme.md)
+[Bahasa Indonesia](https://github.com/muhammadzaini213/FloatingBypasser/blob/main/(In)%20Readme.md)
 
 <hr>
 
@@ -25,7 +25,7 @@ This feature would refresh this application floating view to top. Allowing this 
 <li>In your git bash write </li>
   <pre><code>cd (your directory path)</code></pre>
 <li>After that, clone this repository with:</li>
-<pre><code>git clone https://github.com/muhammadzaini213/FloatingBrowser.git</code></pre>
+<pre><code>git clone https://github.com/muhammadzaini213/FloatingBypasser.git</code></pre>
 <li>Then in your Android Studio, open that file</li>
 <li>Generate this apk</li>
 <hr>
